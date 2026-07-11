@@ -1,0 +1,1242 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fahrschule Isi — Plattform (Draft)</title>
+<link rel="icon" type="image/png" href="data:image/png;base64,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">
+<style>
+  /* Markenfarben Fahrschule isi: Teal #00B1BD, Pink #C71982 (fürs UI leicht abgedunkelt bzw. aufgehellt) */
+  :root{
+    --bg:#f3f7f8; --surface:#ffffff; --border:#dfe7e9; --text:#1c2226; --text-mut:#64737a;
+    --accent:#007f8f; --accent-soft:#e0f5f8; --accent-text:#00606e;
+    --pink:#c71982; --pink-soft:#fbe4f2;
+    --green:#16a34a; --green-soft:#e8f7ee; --amber:#d97706; --amber-soft:#fef3e0; --red:#dc2626; --red-soft:#fde8e8;
+    --radius:14px; --shadow:0 1px 2px rgba(20,20,30,.04), 0 4px 16px rgba(20,20,30,.06);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --bg:#12181a; --surface:#1a2225; --border:#2a363a; --text:#eef3f4; --text-mut:#93a4aa;
+      --accent:#2fc4d4; --accent-soft:#0d3b42; --accent-text:#a9e7ef;
+      --pink:#f45fbe; --pink-soft:#41102f;
+      --green:#4ade80; --green-soft:#153524; --amber:#fbbf24; --amber-soft:#3a2a0d; --red:#f87171; --red-soft:#3a1616; }
+  }
+  :root[data-theme="dark"]{ --bg:#12181a; --surface:#1a2225; --border:#2a363a; --text:#eef3f4; --text-mut:#93a4aa;
+    --accent:#2fc4d4; --accent-soft:#0d3b42; --accent-text:#a9e7ef;
+    --pink:#f45fbe; --pink-soft:#41102f;
+    --green:#4ade80; --green-soft:#153524; --amber:#fbbf24; --amber-soft:#3a2a0d; --red:#f87171; --red-soft:#3a1616; }
+  :root[data-theme="light"]{ --bg:#f3f7f8; --surface:#ffffff; --border:#dfe7e9; --text:#1c2226; --text-mut:#64737a;
+    --accent:#007f8f; --accent-soft:#e0f5f8; --accent-text:#00606e;
+    --pink:#c71982; --pink-soft:#fbe4f2;
+    --green:#16a34a; --green-soft:#e8f7ee; --amber:#d97706; --amber-soft:#fef3e0; --red:#dc2626; --red-soft:#fde8e8; }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.45;}
+  h1,h2,h3,h4{margin:0 0 4px;font-weight:650;letter-spacing:-.01em;}
+  p{margin:0;}
+  button{font-family:inherit;cursor:pointer;}
+  .app{max-width:1180px;margin:0 auto;padding:0 20px 64px;}
+  .overflow-x{overflow-x:auto;}
+
+  /* Topbar */
+  .topbar{background:var(--surface);position:sticky;top:0;z-index:20;}
+  .topbar::after{content:"";display:block;height:3px;background:linear-gradient(90deg,var(--accent),var(--pink));}
+  .topbar-inner{max-width:1180px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+  .brand{display:flex;align-items:center;gap:10px;}
+  .brand-badge{width:42px;height:42px;border-radius:50%;flex-shrink:0;}
+  .brand-badge img{width:100%;height:100%;display:block;}
+  .brand-text .name{font-weight:700;font-size:15px;}
+  .brand-text .sub{font-size:12.5px;color:var(--text-mut);}
+  .role-switch{display:flex;gap:4px;background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:3px;}
+  .role-btn{border:none;background:transparent;color:var(--text-mut);padding:7px 12px;border-radius:8px;font-size:13px;font-weight:600;transition:.15s;}
+  .role-btn.active{background:var(--surface);color:var(--accent-text);box-shadow:var(--shadow);}
+  .persona{font-size:12.5px;color:var(--text-mut);display:flex;align-items:center;gap:8px;}
+  .persona select{border:1px solid var(--border);background:var(--surface);color:var(--text);border-radius:8px;padding:5px 8px;font-size:12.5px;font-family:inherit;}
+
+  /* Nav tabs */
+  .tabs{display:flex;gap:4px;margin:20px 0 22px;border-bottom:1px solid var(--border);overflow-x:auto;}
+  .tab-btn{border:none;background:transparent;color:var(--text-mut);padding:10px 16px;font-size:14px;font-weight:600;border-bottom:2px solid transparent;white-space:nowrap;}
+  .tab-btn.active{color:var(--accent-text);border-bottom-color:var(--accent);}
+
+  /* Cards */
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px;}
+  .card + .card{margin-top:16px;}
+  .grid + .card, .card + .grid, .grid + .grid, .grid + .alert, .card + .alert{margin-top:16px;}
+  .grid{display:grid;gap:16px;}
+  .grid-2{grid-template-columns:1fr 1fr;}
+  .grid-3{grid-template-columns:repeat(3,1fr);}
+  .grid-4{grid-template-columns:repeat(4,1fr);}
+  @media (max-width:900px){ .grid-2,.grid-3,.grid-4{grid-template-columns:1fr 1fr;} }
+  @media (max-width:600px){ .grid-2,.grid-3,.grid-4{grid-template-columns:1fr;} }
+
+  .section-title{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:14px;gap:10px;flex-wrap:wrap;}
+  .section-title h2{font-size:18px;}
+  .section-title .hint{font-size:12.5px;color:var(--text-mut);}
+  .muted{color:var(--text-mut);}
+  .small{font-size:12.5px;}
+  .tiny{font-size:11.5px;}
+
+  .btn{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--border);background:var(--surface);color:var(--text);padding:9px 14px;border-radius:9px;font-size:13.5px;font-weight:600;}
+  .btn:hover{border-color:var(--accent);}
+  .btn-primary{background:var(--accent);border-color:var(--accent);color:#fff;}
+  .btn-primary:hover{opacity:.92;border-color:var(--accent);}
+  .btn-ghost{border-color:transparent;background:transparent;}
+  .btn-sm{padding:6px 10px;font-size:12.5px;}
+  .btn-danger{color:var(--red);border-color:var(--red-soft);background:var(--red-soft);}
+  .btn:disabled{opacity:.5;cursor:not-allowed;}
+
+  .badge{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;font-weight:700;padding:3px 9px;border-radius:100px;}
+  .badge-green{background:var(--green-soft);color:var(--green);}
+  .badge-amber{background:var(--amber-soft);color:var(--amber);}
+  .badge-red{background:var(--red-soft);color:var(--red);}
+  .badge-accent{background:var(--accent-soft);color:var(--accent-text);}
+  .badge-mut{background:var(--bg);color:var(--text-mut);border:1px solid var(--border);}
+  .badge-pink{background:var(--pink-soft);color:var(--pink);}
+
+  .field{display:flex;flex-direction:column;gap:5px;margin-bottom:12px;}
+  .field label{font-size:12.5px;font-weight:600;color:var(--text-mut);}
+  .field select,.field input{border:1px solid var(--border);background:var(--bg);color:var(--text);padding:9px 10px;border-radius:9px;font-size:13.5px;font-family:inherit;}
+  .radio-row{display:flex;flex-direction:column;gap:8px;}
+  .radio-opt{display:flex;align-items:flex-start;gap:9px;border:1px solid var(--border);border-radius:10px;padding:10px 12px;font-size:13.5px;cursor:pointer;}
+  .radio-opt:hover{border-color:var(--accent);}
+  .radio-opt.correct{border-color:var(--green);background:var(--green-soft);}
+  .radio-opt.wrong{border-color:var(--red);background:var(--red-soft);}
+  .radio-opt input{margin-top:3px;}
+
+  .alert{border-radius:10px;padding:12px 14px;font-size:13.5px;display:flex;gap:10px;align-items:flex-start;}
+  .alert-error{background:var(--red-soft);color:var(--red);}
+  .alert-success{background:var(--green-soft);color:var(--green);}
+  .alert-info{background:var(--accent-soft);color:var(--accent-text);}
+
+  /* Calendar */
+  .cal-wrap{position:relative;display:grid;grid-template-columns:64px repeat(6,minmax(96px,1fr));min-width:760px;border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+  .cal-head{background:var(--bg);padding:9px 6px;font-size:12px;font-weight:700;text-align:center;border-bottom:1px solid var(--border);border-left:1px solid var(--border);}
+  .cal-head:first-child{border-left:none;}
+  .cal-head .today-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--pink);margin-left:4px;}
+  .cal-time{background:var(--bg);font-size:11px;color:var(--text-mut);padding:4px 6px;text-align:right;border-top:1px solid var(--border);}
+  .cal-cell{border-top:1px solid var(--border);border-left:1px solid var(--border);height:46px;position:relative;background:var(--surface);}
+  .cal-cell.clickable:hover{background:var(--accent-soft);cursor:pointer;}
+  .cal-cell.blocked{background:repeating-linear-gradient(135deg,var(--bg),var(--bg) 5px,var(--surface) 5px,var(--surface) 10px);}
+  .cal-lesson.editable{cursor:pointer;}
+  .cal-lesson.editable:hover{filter:brightness(1.15);}
+  .inline-input{border:1px solid var(--border);background:var(--bg);color:var(--text);padding:7px 9px;border-radius:8px;font-size:13px;font-family:inherit;min-width:0;}
+  .cal-lesson{position:absolute;top:2px;bottom:2px;left:2px;right:2px;border-radius:7px;color:#fff;font-size:10.5px;font-weight:600;padding:4px 6px;overflow:hidden;line-height:1.25;z-index:2;box-shadow:0 1px 4px rgba(0,0,0,.15);}
+  .cal-lesson .st{opacity:.85;font-weight:500;display:block;}
+  .cal-legend{display:flex;gap:14px;flex-wrap:wrap;margin-top:12px;font-size:12px;color:var(--text-mut);}
+  .cal-legend .dot{width:9px;height:9px;border-radius:3px;display:inline-block;margin-right:5px;}
+
+  /* Score gauge */
+  .score-ring{width:96px;height:96px;flex-shrink:0;}
+  .topic-row{display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--border);}
+  .topic-row:last-child{border-bottom:none;}
+  .topic-bar-track{flex:1;height:8px;border-radius:5px;background:var(--bg);overflow:hidden;}
+  .topic-bar-fill{height:100%;border-radius:5px;}
+  .topic-name{width:170px;flex-shrink:0;font-size:13px;font-weight:600;}
+  .topic-val{width:80px;flex-shrink:0;text-align:right;font-size:12px;color:var(--text-mut);}
+
+  .kpi{padding:18px;}
+  .kpi .num{font-size:28px;font-weight:750;letter-spacing:-.02em;}
+  .kpi .lbl{font-size:12.5px;color:var(--text-mut);margin-top:2px;}
+  .kpi .delta{font-size:11.5px;margin-top:6px;}
+
+  .list-item{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border);gap:10px;}
+  .list-item:last-child{border-bottom:none;}
+  .avatar{width:32px;height:32px;border-radius:50%;background:var(--accent-soft);color:var(--accent-text);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12.5px;flex-shrink:0;}
+
+  .teaser{background:linear-gradient(135deg,var(--pink-soft),var(--surface));border:1px dashed var(--pink);}
+  .footer-note{margin-top:28px;font-size:11.5px;color:var(--text-mut);text-align:center;}
+  .reset-link{background:none;border:none;color:var(--text-mut);text-decoration:underline;font-size:11.5px;cursor:pointer;padding:0;}
+  .chip-row{display:flex;gap:8px;flex-wrap:wrap;}
+  .chip{border:1px solid var(--border);border-radius:100px;padding:7px 13px;font-size:13px;font-weight:600;background:var(--surface);}
+  .chip.active{border-color:var(--accent);background:var(--accent-soft);color:var(--accent-text);}
+  .progress-track{height:8px;border-radius:5px;background:var(--bg);overflow:hidden;margin-top:8px;}
+  .progress-fill{height:100%;background:var(--accent);border-radius:5px;}
+  .content-body{font-size:14px;color:var(--text);}
+  .content-img{width:100%;height:150px;border-radius:10px;background:repeating-linear-gradient(45deg,var(--bg),var(--bg) 10px,var(--surface) 10px,var(--surface) 20px);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-mut);font-size:12.5px;margin:10px 0;}
+  .close-x{background:none;border:none;color:var(--text-mut);font-size:18px;line-height:1;padding:2px 6px;}
+</style>
+</head>
+<body>
+<div id="topbar"></div>
+<div class="app" id="app"></div>
+
+<script>
+/* ---------- Demodaten ---------- */
+const STORAGE_KEY = "fahrschul_draft_v4";
+
+/* Dichter, realistischer Wochenplan: je Fahrlehrer feste Slots [Tag, Stunde, Dauer?],
+   Schüler rotieren, Status ergibt sich aus der Lage relativ zu "heute" (Mi, ca. 12 Uhr). */
+function seedLessons(){
+  const slots = {
+    i1:[[0,8],[0,9],[0,11],[0,14],[0,16],[1,8],[1,10],[1,11],[1,15],[2,8],[2,10],[2,13],[2,16],[3,9],[3,10],[3,14,120],[4,8],[4,9],[4,11],[4,14],[5,8],[5,9],[5,11]],
+    i2:[[0,9],[0,10],[0,14,120],[1,9],[1,11],[1,14],[2,9],[2,11],[2,15],[3,10],[3,13],[3,15],[4,9],[4,10],[4,15]]
+  };
+  const rotation = { i1:["s1","s2","s5"], i2:["s3","s4"] };
+  const vehicle = { i1:"v1", i2:"v2" };
+  const lessons = [];
+  Object.keys(slots).forEach(iid=>{
+    slots[iid].forEach((slot,idx)=>{
+      const day=slot[0], hour=slot[1], duration=slot[2]||60;
+      let status;
+      if(day<2 || (day===2 && hour+duration/60<=12)) status="abgeschlossen";
+      else if(day===2) status = hour>=15 ? "gebucht" : "bestätigt";
+      else status = hour%2===0 ? "bestätigt" : "gebucht";
+      lessons.push({id:iid+"_"+day+"_"+hour, day, hour, duration, instructor:iid,
+        student:rotation[iid][idx%rotation[iid].length], vehicle:vehicle[iid], status});
+    });
+  });
+  return lessons;
+}
+
+function defaultData(){
+  return {
+    tenant:{ name:"Fahrschule Isi", standort:"Mitte", standortNord:"Nord" },
+    days:["Mo","Di","Mi","Do","Fr","Sa"],
+    hours:[8,9,10,11,12,13,14,15,16,17],
+    todayIndex:2,
+    students:[
+      {id:"s1",name:"Lena Schmidt",instructor:"i1"},
+      {id:"s2",name:"Jonas Weber",instructor:"i1"},
+      {id:"s3",name:"Sophie Klein",instructor:"i2"},
+      {id:"s4",name:"Tim Hoffmann",instructor:"i2"},
+      {id:"s5",name:"Mia Bauer",instructor:"i1"}
+    ],
+    instructors:[
+      {id:"i1",name:"Murat Aydin",color:"#007f8f",avail:{0:[8,18],1:[8,18],2:[8,18],3:[8,18],4:[8,18],5:[8,13]}},
+      {id:"i2",name:"Julia Neumann",color:"#c71982",avail:{0:[9,17],1:[9,17],2:[9,17],3:[9,17],4:[9,17]}}
+    ],
+    vehicles:[
+      {id:"v1",label:"VW Golf · KL-FS 101",status:"aktiv"},
+      {id:"v2",label:"VW Golf · KL-FS 102",status:"aktiv"},
+      {id:"v3",label:"Opel Corsa · KL-FS 103",status:"aktiv"}
+    ],
+    topics:[
+      {id:"t1",name:"Vorfahrt",blurb:"Rechts vor links, Vorfahrtstraßen und Abbiegeregeln.",content:[
+        "Gilt an einer Kreuzung keine besondere Regelung, greift die Grundregel <strong>rechts vor links</strong>: Wer von rechts kommt, hat Vorfahrt (§ 8 StVO). Sie gilt auch in verkehrsberuhigten Bereichen und auf Parkplätzen mit eindeutigem Fahrbahncharakter.",
+        "Verkehrszeichen heben die Grundregel auf: Die gelbe Raute (Zeichen 306) kennzeichnet eine <strong>Vorfahrtstraße</strong>, „Vorfahrt gewähren“ (Zeichen 205) und das Stoppschild (Zeichen 206) verpflichten zum Warten — am Stoppschild immer mit vollständigem Anhalten an der Haltlinie. Bei abknickender Vorfahrt zeigt ein Zusatzzeichen den Verlauf.",
+        "Beim <strong>Linksabbiegen</strong> muss der entgegenkommende Geradeaus- und Rechtsabbiegeverkehr durchgelassen werden — auch Radfahrer auf Radwegen. Fußgänger, die die Fahrbahn überqueren, in die eingebogen wird, haben beim Abbiegen ebenfalls Vorrang.",
+        "<strong>Merkhilfe zur Rangfolge:</strong> Polizeibeamter vor Ampel · Ampel vor Verkehrszeichen · Verkehrszeichen vor rechts-vor-links."
+      ]},
+      {id:"t2",name:"Gefahrenlehre",blurb:"Bremsweg, toter Winkel, Wetter und Sicht — Gefahren erkennen, bevor sie entstehen."},
+      {id:"t3",name:"Verkehrszeichen",blurb:"Form und Farbe verraten die Bedeutung: Verbote, Gebote, Gefahren- und Richtzeichen."},
+      {id:"t4",name:"Vorschriften",blurb:"Promillegrenzen, Pflichtausstattung, Probezeit und weitere Regeln."},
+      {id:"t5",name:"Verhalten in Notfällen",blurb:"Rettungsgasse, Absichern der Unfallstelle, Erste Hilfe und Notruf."},
+      {id:"t6",name:"Technik & Umwelt",blurb:"Umweltschonende Fahrweise, Reifendruck und Fahrzeugwartung."},
+      {id:"t7",name:"Personenbeförderung",blurb:"Kindersicherung, Anschnallpflicht und Verantwortung des Fahrers."}
+    ],
+    lessons: seedLessons(),
+    progress:{
+      s1:{t1:{learned:70,correctRate:50,lastAttemptDays:3},t2:{learned:60,correctRate:45,lastAttemptDays:3},t3:{learned:100,correctRate:90,lastAttemptDays:5},t4:{learned:100,correctRate:85,lastAttemptDays:10},t5:{learned:80,correctRate:75,lastAttemptDays:5},t6:{learned:90,correctRate:80,lastAttemptDays:20},t7:{learned:100,correctRate:95,lastAttemptDays:5}},
+      s2:{t1:{learned:30,correctRate:20,lastAttemptDays:40},t2:{learned:20,correctRate:10,lastAttemptDays:40},t3:{learned:40,correctRate:30,lastAttemptDays:30},t4:{learned:50,correctRate:40,lastAttemptDays:20},t5:{learned:20,correctRate:0,lastAttemptDays:999},t6:{learned:30,correctRate:20,lastAttemptDays:50},t7:{learned:40,correctRate:30,lastAttemptDays:40}},
+      s3:{t1:{learned:95,correctRate:90,lastAttemptDays:2},t2:{learned:90,correctRate:88,lastAttemptDays:3},t3:{learned:100,correctRate:95,lastAttemptDays:2},t4:{learned:95,correctRate:90,lastAttemptDays:4},t5:{learned:90,correctRate:85,lastAttemptDays:5},t6:{learned:100,correctRate:92,lastAttemptDays:3},t7:{learned:95,correctRate:90,lastAttemptDays:4}},
+      s4:{t1:{learned:60,correctRate:65,lastAttemptDays:8},t2:{learned:65,correctRate:60,lastAttemptDays:9},t3:{learned:70,correctRate:68,lastAttemptDays:8},t4:{learned:60,correctRate:55,lastAttemptDays:12},t5:{learned:65,correctRate:60,lastAttemptDays:10},t6:{learned:70,correctRate:65,lastAttemptDays:9},t7:{learned:60,correctRate:58,lastAttemptDays:11}},
+      s5:{t1:{learned:85,correctRate:80,lastAttemptDays:6},t2:{learned:80,correctRate:78,lastAttemptDays:6},t3:{learned:90,correctRate:85,lastAttemptDays:5},t4:{learned:40,correctRate:35,lastAttemptDays:35},t5:{learned:35,correctRate:30,lastAttemptDays:40},t6:{learned:85,correctRate:82,lastAttemptDays:6},t7:{learned:80,correctRate:75,lastAttemptDays:7}}
+    },
+    questions:[
+      {id:"q1",topic:"t1",points:5,text:"An einer Kreuzung ohne Verkehrszeichen und ohne Ampel näherst du dich einem Fahrzeug von rechts. Was gilt?",options:["Rechts vor links – ich muss warten","Ich habe Vorfahrt, da ich zuerst an der Kreuzung war","Der langsamere Verkehrsteilnehmer hat Vorfahrt","Es gilt grundsätzlich Handzeichen-Pflicht"],correct:0,explanation:"Ohne Beschilderung oder Ampel gilt die Grundregel rechts vor links."},
+      {id:"q2",topic:"t1",points:4,text:"Du willst nach links abbiegen und es kommt Gegenverkehr geradeaus entgegen. Wie verhältst du dich?",options:["Ich muss den entgegenkommenden Verkehr durchlassen","Ich habe beim Abbiegen grundsätzlich Vorrang","Nur größere Fahrzeuge müssen mir Vorrang gewähren","Es gilt first come, first served"],correct:0,explanation:"Beim Linksabbiegen muss der entgegenkommende Geradeausverkehr durchgelassen werden."},
+      {id:"q3",topic:"t2",points:4,text:"Was beschreibt den 'toten Winkel' bei LKW und Bussen am besten?",options:["Bereiche neben und hinter dem Fahrzeug, die über die Spiegel nicht einsehbar sind","Einen technischen Defekt der Bremsanlage","Ein Wetterphänomen bei Nebel","Die Anzeige der Rückfahrkamera"],correct:0,explanation:"Der tote Winkel bezeichnet Bereiche, die der Fahrer trotz Spiegel nicht sieht – besonders gefährlich beim Abbiegen."},
+      {id:"q4",topic:"t2",points:3,text:"Bei Nässe verlängert sich der Bremsweg spürbar. Wie reagierst du richtig?",options:["Abstand vergrößern und Geschwindigkeit anpassen","Abstand verringern für bessere Kontrolle","Nur die Lenkung anpassen, Tempo halten","Keine Anpassung nötig, moderne Reifen gleichen das aus"],correct:0,explanation:"Nässe verlängert den Bremsweg – größerer Abstand und angepasstes Tempo sind notwendig."},
+      {id:"q16",topic:"t2",points:3,text:"Was erhöht das Risiko beim Auffahren auf die Autobahn über den Beschleunigungsstreifen?",options:["Nur zu geringe Geschwindigkeit beim Einfädeln","Nur zu hohe Geschwindigkeit im Vergleich zum fließenden Verkehr","Sowohl zu langsames als auch zu schnelles Einfädeln","Es besteht dabei kein nennenswertes Risiko"],correct:2,explanation:"Sowohl deutlich zu langsames als auch zu schnelles Einfädeln gefährdet den fließenden Verkehr."},
+      {id:"q5",topic:"t3",points:3,text:"Was bedeutet ein rundes Verkehrszeichen mit rotem Rand auf weißem Grund in der Regel?",options:["Ein Verbot","Ein Gebot","Einen Hinweis","Eine Vorfahrtsregelung"],correct:0,explanation:"Runde Schilder mit rotem Rand sind in der Regel Verbotszeichen."},
+      {id:"q6",topic:"t3",points:2,text:"Wofür steht ein blaues, rechteckiges Verkehrszeichen meistens?",options:["Für ein Gebot oder eine Information","Für ein Verbot","Für eine Gefahrenstelle","Für eine Vorfahrtsregelung"],correct:0,explanation:"Blaue rechteckige Schilder zeigen meist Gebote oder Hinweise (z. B. Radweg, Einbahnstraße)."},
+      {id:"q15",topic:"t3",points:4,text:"Was bedeutet ein gelbes, auf der Spitze stehendes rautenförmiges Schild?",options:["Vorfahrtstraße","Ein allgemeines Verbot","Ein Halteverbot","Ein Parkverbot"],correct:0,explanation:"Die gelbe Raute kennzeichnet eine Vorfahrtstraße."},
+      {id:"q7",topic:"t4",points:4,text:"Welche Promillegrenze gilt für Fahranfänger in der Probezeit?",options:["0,0 Promille","0,5 Promille","0,3 Promille","1,1 Promille"],correct:0,explanation:"In der Probezeit und für Fahranfänger unter 21 gilt ein absolutes Alkoholverbot (0,0 Promille)."},
+      {id:"q8",topic:"t4",points:2,text:"Welche Mindestausstattung muss im Fahrzeug mitgeführt werden?",options:["Warndreieck und Verbandskasten","Nur ein Feuerlöscher","Ein Ersatzreifen ist gesetzlich zwingend","Es gibt keine Pflichtausstattung"],correct:0,explanation:"Warndreieck, Warnweste und Verbandskasten gehören zur vorgeschriebenen Mindestausstattung."},
+      {id:"q9",topic:"t5",points:5,text:"Wie bildet man auf der Autobahn bei stockendem Verkehr korrekt eine Rettungsgasse?",options:["Zwischen dem äußerst linken und dem daneben liegenden Fahrstreifen","Alle Fahrzeuge fahren ganz rechts heran","Rettungsgassen sind nur auf Landstraßen Pflicht","Auf dem Seitenstreifen sammeln"],correct:0,explanation:"Die Rettungsgasse entsteht zwischen dem linken und dem unmittelbar rechts davon liegenden Fahrstreifen."},
+      {id:"q10",topic:"t5",points:4,text:"Was ist bei einem Unfall mit Verletzten der erste richtige Schritt?",options:["Unfallstelle absichern","Sofort Kontaktdaten austauschen","Weiterfahren, um einen Stau zu vermeiden","Das Fahrzeug von der Fahrbahn reinigen"],correct:0,explanation:"Zuerst wird die Unfallstelle abgesichert, um Folgeunfälle zu verhindern – danach Erste Hilfe und Notruf."},
+      {id:"q11",topic:"t6",points:2,text:"Warum wird eine niedertourige, vorausschauende Fahrweise empfohlen?",options:["Sie spart Kraftstoff und schont die Umwelt","Sie ist in Deutschland nicht zulässig","Sie erhöht den Verschleiß deutlich","Sie hat keinerlei Effekt auf den Verbrauch"],correct:0,explanation:"Vorausschauendes, niedertouriges Fahren senkt Verbrauch, Verschleiß und Emissionen."},
+      {id:"q12",topic:"t6",points:2,text:"Wann sollte der Reifendruck kontrolliert werden?",options:["Regelmäßig, auch vor längeren Fahrten","Nur bei der Hauptuntersuchung","Grundsätzlich nie notwendig","Nur im Winter"],correct:0,explanation:"Der Reifendruck sollte regelmäßig geprüft werden – er beeinflusst Verbrauch, Verschleiß und Sicherheit."},
+      {id:"q13",topic:"t7",points:3,text:"Ab wann dürfen Kinder in Deutschland ohne Kindersitz mitfahren (vereinfachte Faustregel)?",options:["Ab 12 Jahren oder 150 cm Körpergröße","Ab 6 Jahren","Ab 3 Jahren","Es gibt keine Altersgrenze"],correct:0,explanation:"Vereinfacht gilt: bis 12 Jahre oder 150 cm Körpergröße ist ein geeigneter Kindersitz vorgeschrieben."},
+      {id:"q14",topic:"t7",points:3,text:"Wer trägt die Verantwortung dafür, dass Kinder im Auto richtig angeschnallt sind?",options:["Der Fahrzeugführer","Ausschließlich die Erziehungsberechtigten zuhause","Niemand – das ist freiwillig","Die Fahrschule des Kindes"],correct:0,explanation:"Die Verantwortung für angelegte Rückhaltesysteme liegt beim Fahrzeugführer."}
+    ],
+    attempts:[]
+  };
+}
+
+function loadData(){
+  const raw = localStorage.getItem(STORAGE_KEY);
+  if(!raw) return defaultData();
+  try{
+    const d = JSON.parse(raw);
+    // Stale-Guard: ältere Datenstände ohne Verfügbarkeiten/Fehlerpunkte verwerfen
+    if(!d.instructors || !d.instructors[0].avail || !d.vehicles || !d.vehicles[0].status || !d.questions || d.questions[0].points===undefined) return defaultData();
+    return d;
+  }catch(e){ return defaultData(); }
+}
+function saveData(){ localStorage.setItem(STORAGE_KEY, JSON.stringify(DATA)); }
+function resetData(){ localStorage.removeItem(STORAGE_KEY); DATA = defaultData(); saveData(); state.showBookingForm=false; state.bookingError=""; state.bookingSuccess=""; state.quiz=null; state.openChapter=null; render(); }
+
+let DATA = loadData();
+
+/* ---------- App-State ---------- */
+let state = {
+  role: "student",
+  activeStudentId: "s1",
+  activeInstructorId: "i1",
+  activeView: "planer",
+  showBookingForm: false,
+  bookingError: "",
+  bookingSuccess: "",
+  bookForm: { day:2, hour:14, duration:60, instructor:"i1" },
+  openChapter: null,
+  quiz: null,
+  adminLesson: null,
+  adminError: "",
+  adminMsg: "",
+  editInstructorId: null,
+  adminTheorieStudent: null
+};
+
+/* ---------- Helpers ---------- */
+const byId = (arr,id)=>arr.find(x=>x.id===id);
+function studentName(id){ const s=byId(DATA.students,id); return s?s.name:"—"; }
+function instructorName(id){ const i=byId(DATA.instructors,id); return i?i.name:"—"; }
+function instructorColor(id){ const i=byId(DATA.instructors,id); return i?i.color:"#999"; }
+function vehicleLabel(id){ const v=byId(DATA.vehicles,id); return v?v.label:"—"; }
+function initials(name){ return name.split(" ").map(w=>w[0]).join("").slice(0,2).toUpperCase(); }
+
+function topicScore(entry){
+  if(!entry) return {coverage:0,correctRate:0,freshness:0,score:0};
+  const coverage = entry.learned;
+  const correctRate = entry.correctRate;
+  let freshness;
+  if(entry.lastAttemptDays<=7) freshness=100;
+  else if(entry.lastAttemptDays<=14) freshness=60;
+  else if(entry.lastAttemptDays<=30) freshness=30;
+  else freshness=10;
+  const score = Math.round(coverage*0.4 + correctRate*0.4 + freshness*0.2);
+  return {coverage,correctRate,freshness,score};
+}
+function overallScore(studentId){
+  const prog = DATA.progress[studentId];
+  const scores = DATA.topics.map(t=>topicScore(prog[t.id]).score);
+  return Math.round(scores.reduce((a,b)=>a+b,0)/scores.length);
+}
+function scoreLevel(score){
+  if(score>=85) return {label:"Prüfungsreif", cls:"green"};
+  if(score>=65) return {label:"Auf gutem Weg", cls:"amber"};
+  return {label:"Noch Lernbedarf", cls:"red"};
+}
+function scoreColor(score){ return score>=85?"var(--green)":score>=65?"var(--amber)":"var(--red)"; }
+
+function lessonsOverlap(day,hour,duration,l){
+  if(l.day!==day) return false;
+  const s1=hour, e1=hour+duration/60, s2=l.hour, e2=l.hour+l.duration/60;
+  return s1<e2 && s2<e1;
+}
+function instructorAvailable(instructorId,day,hour,duration){
+  const i = byId(DATA.instructors,instructorId);
+  const r = i && i.avail ? i.avail[day] : null;
+  return !!r && hour>=r[0] && hour+duration/60<=r[1];
+}
+function anyInstructorAvailable(day,hour){
+  return DATA.instructors.some(i=>instructorAvailable(i.id,day,hour,60));
+}
+function capacityHours(){
+  return DATA.instructors.reduce((sum,i)=>sum+Object.values(i.avail).reduce((a,r)=>a+(r[1]-r[0]),0),0);
+}
+function instAvailLabel(i){
+  const parts=[];
+  let runStart=-1, runRange=null;
+  const flush=(end)=>{
+    if(runRange){
+      const daysTxt = runStart===end ? DATA.days[runStart] : DATA.days[runStart]+"–"+DATA.days[end];
+      parts.push(`${daysTxt} ${runRange[0]}–${runRange[1]} Uhr`);
+    }
+  };
+  for(let d=0; d<DATA.days.length; d++){
+    const cur = runRange ? runRange.join("-") : null;
+    const next = i.avail[d] ? i.avail[d].join("-") : null;
+    if(next!==cur){ flush(d-1); runStart=d; runRange=i.avail[d]||null; }
+  }
+  flush(DATA.days.length-1);
+  return parts.length ? parts.join(", ") : "keine Arbeitszeiten hinterlegt";
+}
+function statusBadge(status){
+  const cls = status==="abgeschlossen"?"badge-mut":status==="bestätigt"?"badge-accent":"badge-amber";
+  return `<span class="badge ${cls}">${status}</span>`;
+}
+function conflictingLesson(day,hour,duration,instructorId,excludeId){
+  return DATA.lessons.find(l=>l.instructor===instructorId && l.id!==excludeId && lessonsOverlap(day,hour,duration,l));
+}
+function studentConflict(studentId,day,hour,duration,excludeId){
+  return DATA.lessons.find(l=>l.student===studentId && l.id!==excludeId && lessonsOverlap(day,hour,duration,l));
+}
+function freeVehicleFor(day,hour,duration,excludeId,preferId){
+  const usable = DATA.vehicles.filter(v=>v.status!=="werkstatt");
+  const isFree = v=>!DATA.lessons.some(l=>l.vehicle===v.id && l.id!==excludeId && lessonsOverlap(day,hour,duration,l));
+  return usable.find(v=>v.id===preferId && isFree(v)) || usable.find(isFree);
+}
+
+/* ---------- Buchung ---------- */
+function attemptBooking(){
+  const f = state.bookForm;
+  const day=Number(f.day), hour=Number(f.hour), duration=Number(f.duration), instructor=f.instructor;
+  if(!instructorAvailable(instructor,day,hour,duration)){
+    const i = byId(DATA.instructors,instructor);
+    state.bookingError = `${i.name} ist zu dieser Zeit nicht im Dienst (Arbeitszeiten: ${instAvailLabel(i)}). Bitte wähle eine andere Zeit oder einen anderen Fahrlehrer.`;
+    state.bookingSuccess="";
+    render(); return;
+  }
+  const own = studentConflict(state.activeStudentId,day,hour,duration,null);
+  if(own){
+    state.bookingError = `Du hast zu dieser Zeit bereits eine Fahrstunde bei ${instructorName(own.instructor)} (${DATA.days[own.day]} ${String(own.hour).padStart(2,"0")}:00). Doppelbuchungen sind nicht möglich.`;
+    state.bookingSuccess="";
+    render(); return;
+  }
+  const conflict = conflictingLesson(day,hour,duration,instructor);
+  if(conflict){
+    state.bookingError = `${instructorName(instructor)} ist zu dieser Zeit bereits mit ${studentName(conflict.student)} verplant (${DATA.days[conflict.day]} ${String(conflict.hour).padStart(2,"0")}:00–${String(conflict.hour+conflict.duration/60).padStart(2,"0")}:00). Bitte wähle eine andere Zeit oder einen anderen Fahrlehrer.`;
+    state.bookingSuccess="";
+    render(); return;
+  }
+  const vehicle = freeVehicleFor(day,hour,duration,null,null);
+  if(!vehicle){
+    state.bookingError = "Kein einsatzbereites Fahrzeug in diesem Zeitraum verfügbar. Bitte eine andere Zeit wählen.";
+    state.bookingSuccess="";
+    render(); return;
+  }
+  const id = "l"+(DATA.lessons.length+1)+"_"+Date.now();
+  DATA.lessons.push({id,day,hour,duration,instructor,student:state.activeStudentId,vehicle:vehicle.id,status:"gebucht"});
+  saveData();
+  state.bookingError="";
+  state.bookingSuccess=`Fahrstunde gebucht: ${DATA.days[day]} ${String(hour).padStart(2,"0")}:00 Uhr bei ${instructorName(instructor)} (${vehicle.label}).`;
+  state.showBookingForm=false;
+  render();
+}
+function cancelLesson(id){
+  DATA.lessons = DATA.lessons.filter(l=>l.id!==id);
+  saveData(); render();
+}
+function confirmLesson(id){
+  const l = byId(DATA.lessons,id);
+  if(l) l.status = "bestätigt";
+  saveData(); render();
+}
+
+/* ---------- Admin: Fahrstunden verwalten ---------- */
+function openAdminLesson(id){
+  const l = byId(DATA.lessons,id);
+  state.adminLesson = {id:l.id, day:l.day, hour:l.hour, duration:l.duration, instructor:l.instructor, student:l.student, status:l.status};
+  state.adminError=""; state.adminMsg="";
+  render();
+  document.getElementById("admin-lesson-form")?.scrollIntoView({behavior:"smooth", block:"center"});
+}
+function newAdminLesson(){
+  state.adminLesson = {id:null, day:DATA.todayIndex, hour:14, duration:60, instructor:DATA.instructors[0].id, student:DATA.students[0].id, status:"gebucht"};
+  state.adminError=""; state.adminMsg="";
+  render();
+  document.getElementById("admin-lesson-form")?.scrollIntoView({behavior:"smooth", block:"center"});
+}
+function saveAdminLesson(){
+  const f = state.adminLesson;
+  const day=Number(f.day), hour=Number(f.hour), duration=Number(f.duration), excl=f.id;
+  if(!instructorAvailable(f.instructor,day,hour,duration)){
+    state.adminError = `${instructorName(f.instructor)} ist zu dieser Zeit nicht im Dienst (${instAvailLabel(byId(DATA.instructors,f.instructor))}).`;
+    render(); return;
+  }
+  const sc = studentConflict(f.student,day,hour,duration,excl);
+  if(sc){
+    state.adminError = `${studentName(f.student)} hat zu dieser Zeit bereits eine Fahrstunde bei ${instructorName(sc.instructor)} (${DATA.days[sc.day]} ${String(sc.hour).padStart(2,"0")}:00).`;
+    render(); return;
+  }
+  const ic = conflictingLesson(day,hour,duration,f.instructor,excl);
+  if(ic){
+    state.adminError = `${instructorName(f.instructor)} ist bereits mit ${studentName(ic.student)} verplant (${DATA.days[ic.day]} ${String(ic.hour).padStart(2,"0")}:00–${String(ic.hour+ic.duration/60).padStart(2,"0")}:00).`;
+    render(); return;
+  }
+  const cur = excl ? byId(DATA.lessons,excl) : null;
+  const vehicle = freeVehicleFor(day,hour,duration,excl,cur?cur.vehicle:null);
+  if(!vehicle){
+    state.adminError = "Kein einsatzbereites Fahrzeug in diesem Zeitraum frei.";
+    render(); return;
+  }
+  if(cur){
+    Object.assign(cur,{day,hour,duration,instructor:f.instructor,student:f.student,vehicle:vehicle.id});
+    state.adminMsg = `Fahrstunde verschoben: ${studentName(cur.student)}, ${DATA.days[day]} ${String(hour).padStart(2,"0")}:00 bei ${instructorName(f.instructor)} (${vehicle.label}).`;
+  } else {
+    DATA.lessons.push({id:"l"+Date.now(), day, hour, duration, instructor:f.instructor, student:f.student, vehicle:vehicle.id, status:"gebucht"});
+    state.adminMsg = `Fahrstunde angelegt: ${studentName(f.student)}, ${DATA.days[day]} ${String(hour).padStart(2,"0")}:00 bei ${instructorName(f.instructor)} (${vehicle.label}).`;
+  }
+  saveData();
+  state.adminLesson=null; state.adminError="";
+  render();
+}
+function adminCancelLesson(id){
+  const l = byId(DATA.lessons,id);
+  state.adminMsg = `Fahrstunde storniert: ${studentName(l.student)}, ${DATA.days[l.day]} ${String(l.hour).padStart(2,"0")}:00 bei ${instructorName(l.instructor)}.`;
+  state.adminLesson=null; state.adminError="";
+  cancelLesson(id);
+}
+function adminConfirmLesson(id){
+  state.adminLesson=null; state.adminError="";
+  state.adminMsg = "Fahrstunde bestätigt.";
+  confirmLesson(id);
+}
+
+/* ---------- Stammdaten ---------- */
+function setStudentName(id,name){ const s=byId(DATA.students,id); if(s && name.trim()) s.name=name.trim(); saveData(); render(); }
+function setStudentInstructor(id,iid){ byId(DATA.students,id).instructor=iid; saveData(); render(); }
+function addStudent(name,iid){
+  name=(name||"").trim(); if(!name) return;
+  const id="s"+Date.now();
+  DATA.students.push({id,name,instructor:iid});
+  DATA.progress[id]={};
+  DATA.topics.forEach(t=>DATA.progress[id][t.id]={learned:0,correctRate:0,lastAttemptDays:999});
+  saveData(); render();
+}
+function removeStudent(id){
+  const n = DATA.lessons.filter(l=>l.student===id).length;
+  if(!confirm(`${studentName(id)} wirklich entfernen?${n?` ${n} zugehörige Fahrstunde(n) werden mit storniert.`:""}`)) return;
+  DATA.lessons = DATA.lessons.filter(l=>l.student!==id);
+  DATA.students = DATA.students.filter(s=>s.id!==id);
+  delete DATA.progress[id];
+  if(state.activeStudentId===id) state.activeStudentId=DATA.students[0]?.id;
+  if(state.adminTheorieStudent===id) state.adminTheorieStudent=null;
+  saveData(); render();
+}
+function setInstructorName(id,name){ const i=byId(DATA.instructors,id); if(i && name.trim()) i.name=name.trim(); saveData(); render(); }
+function setInstructorAvail(id,day,part,value){
+  const i = byId(DATA.instructors,id);
+  if(part==="von" && value==="frei"){ delete i.avail[day]; }
+  else{
+    const r = i.avail[day] || [9,17];
+    if(part==="von"){ r[0]=Number(value); if(r[1]<=r[0]) r[1]=r[0]+1; }
+    else { r[1]=Number(value); if(r[0]>=r[1]) r[0]=r[1]-1; }
+    i.avail[day]=r;
+  }
+  saveData(); render();
+}
+function addInstructor(name){
+  name=(name||"").trim(); if(!name) return;
+  const palette=["#007f8f","#c71982","#7c3aed","#d97706","#059669","#be123c"];
+  const used=DATA.instructors.map(i=>i.color);
+  DATA.instructors.push({id:"i"+Date.now(), name, color:palette.find(c=>!used.includes(c))||"#64748b", avail:{0:[9,17],1:[9,17],2:[9,17],3:[9,17],4:[9,17]}});
+  saveData(); render();
+}
+function removeInstructor(id){
+  if(!confirm(`${instructorName(id)} wirklich entfernen?`)) return;
+  DATA.instructors = DATA.instructors.filter(i=>i.id!==id);
+  if(state.activeInstructorId===id) state.activeInstructorId=DATA.instructors[0]?.id;
+  saveData(); render();
+}
+function toggleVehicle(id){
+  const v = byId(DATA.vehicles,id);
+  v.status = v.status==="werkstatt" ? "aktiv" : "werkstatt";
+  saveData(); render();
+}
+function addVehicle(model,plate){
+  model=(model||"").trim(); plate=(plate||"").trim();
+  if(!model || !plate) return;
+  DATA.vehicles.push({id:"v"+Date.now(), label:model+" · "+plate, status:"aktiv"});
+  saveData(); render();
+}
+function removeVehicle(id){
+  if(!confirm(`${vehicleLabel(id)} wirklich entfernen?`)) return;
+  DATA.vehicles = DATA.vehicles.filter(v=>v.id!==id);
+  saveData(); render();
+}
+
+/* ---------- Theorie ---------- */
+function markLearned(topicId){
+  const p = DATA.progress[state.activeStudentId][topicId];
+  p.learned = 100;
+  saveData(); render();
+}
+
+/* ---------- Simulator ---------- */
+function weakTopicsFor(studentId, minCount){
+  const prog = DATA.progress[studentId];
+  const ranked = DATA.topics.map(t=>({id:t.id, score:topicScore(prog[t.id]).score})).sort((a,b)=>a.score-b.score);
+  return ranked.slice(0,minCount).map(t=>t.id);
+}
+function startQuiz(onlyTopics){
+  const studentId = state.activeStudentId;
+  const prog = DATA.progress[studentId];
+  let pool, focusMode = false;
+  if(onlyTopics && onlyTopics.length){
+    pool = DATA.questions.filter(q=>onlyTopics.includes(q.topic));
+    focusMode = true;
+  } else {
+    // Adaptive Auswahl: 12 von 16 Fragen, schwächste Themenfelder zuerst und garantiert enthalten
+    pool = DATA.questions.slice()
+      .sort((a,b)=>topicScore(prog[a.topic]).score - topicScore(prog[b.topic]).score)
+      .slice(0,12);
+  }
+  state.quiz = { questions:pool, answers:{}, submitted:false, focusMode };
+  state.activeView="simulator";
+  render();
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+function selectAnswer(qid, optIndex){
+  if(state.quiz.submitted) return;
+  state.quiz.answers[qid]=optIndex;
+  render();
+}
+function submitQuiz(){
+  const q = state.quiz;
+  q.submitted = true;
+  const studentId = state.activeStudentId;
+  const topicStats = {};
+  q.questions.forEach(item=>{
+    const given = q.answers[item.id];
+    const correct = given===item.correct;
+    topicStats[item.topic] = topicStats[item.topic] || {correct:0,total:0};
+    topicStats[item.topic].total++;
+    if(correct) topicStats[item.topic].correct++;
+  });
+  Object.keys(topicStats).forEach(topicId=>{
+    const stat = topicStats[topicId];
+    const rate = Math.round((stat.correct/stat.total)*100);
+    const p = DATA.progress[studentId][topicId];
+    p.correctRate = Math.round(p.correctRate*0.4 + rate*0.6);
+    p.lastAttemptDays = 0;
+  });
+  const totalCorrect = q.questions.filter(item=>q.answers[item.id]===item.correct).length;
+  DATA.attempts.push({student:studentId, date:Date.now(), score:totalCorrect, total:q.questions.length});
+  saveData();
+  render();
+  document.getElementById("quiz-result")?.scrollIntoView({behavior:"smooth", block:"start"});
+}
+
+/* ---------- Rendering ---------- */
+function render(){ renderTopbar(); renderApp(); }
+
+function renderTopbar(){
+  const roleLabels = {student:"Schüler", instructor:"Fahrlehrer", admin:"Standort-Admin"};
+  let personaHtml = "";
+  if(state.role==="student"){
+    personaHtml = `<div class="persona">Angemeldet als
+      <select onchange="state.activeStudentId=this.value;render();">
+        ${DATA.students.map(s=>`<option value="${s.id}" ${s.id===state.activeStudentId?"selected":""}>${s.name}</option>`).join("")}
+      </select></div>`;
+  } else if(state.role==="instructor"){
+    personaHtml = `<div class="persona">Angemeldet als
+      <select onchange="state.activeInstructorId=this.value;render();">
+        ${DATA.instructors.map(i=>`<option value="${i.id}" ${i.id===state.activeInstructorId?"selected":""}>${i.name}</option>`).join("")}
+      </select></div>`;
+  } else {
+    personaHtml = `<div class="persona">Angemeldet als <strong>Admin, Standort ${DATA.tenant.standort}</strong></div>`;
+  }
+
+  document.getElementById("topbar").innerHTML = `
+    <div class="topbar">
+      <div class="topbar-inner">
+        <div class="brand">
+          <div class="brand-badge"><img src="data:image/png;base64,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" alt="Logo Fahrschule isi"></div>
+          <div class="brand-text">
+            <div class="name">${DATA.tenant.name}</div>
+            <div class="sub">Standort ${DATA.tenant.standort} · Demo-Draft</div>
+          </div>
+        </div>
+        <div class="role-switch">
+          ${Object.keys(roleLabels).map(r=>`<button class="role-btn ${state.role===r?"active":""}" onclick="setRole('${r}')">${roleLabels[r]}</button>`).join("")}
+        </div>
+        ${personaHtml}
+      </div>
+    </div>`;
+}
+function setRole(r){
+  state.role=r; state.activeView="planer"; state.showBookingForm=false;
+  state.bookingError=""; state.bookingSuccess=""; state.quiz=null; state.openChapter=null;
+  state.adminLesson=null; state.adminError=""; state.adminMsg=""; state.editInstructorId=null; state.adminTheorieStudent=null;
+  render();
+}
+function setView(v){ state.activeView=v; state.quiz=null; state.adminLesson=null; state.adminError=""; state.adminMsg=""; render(); }
+
+function renderApp(){
+  const tabs = [
+    {id:"planer", label:"Planer"},
+    {id:"theorie", label:"Theorie"},
+    {id:"simulator", label:"Testsimulator"}
+  ];
+  if(state.role==="admin"){ tabs.push({id:"cockpit", label:"Standort-Cockpit"}); tabs.push({id:"stammdaten", label:"Stammdaten"}); }
+
+  const app = document.getElementById("app");
+  app.innerHTML = `
+    <div class="tabs">
+      ${tabs.map(t=>`<button class="tab-btn ${state.activeView===t.id?"active":""}" onclick="setView('${t.id}')">${t.label}</button>`).join("")}
+    </div>
+    <div id="view"></div>
+    <div class="footer-note">Klickbarer Draft · Demo-Daten, keine echten Nutzerdaten · amtliche Prüfungsfragen sind nicht enthalten (eigene Beispielfragen) &nbsp;·&nbsp; <button class="reset-link" onclick="resetData()">Demo zurücksetzen</button></div>
+  `;
+  const view = document.getElementById("view");
+  if(state.activeView==="planer") view.innerHTML = renderPlaner();
+  else if(state.activeView==="theorie") view.innerHTML = renderTheorie();
+  else if(state.activeView==="simulator") view.innerHTML = renderSimulator();
+  else if(state.activeView==="cockpit") view.innerHTML = renderCockpit();
+  else if(state.activeView==="stammdaten") view.innerHTML = renderStammdaten();
+}
+
+/* ---- Kalender-Komponente ---- */
+function renderCalendar(lessons, opts){
+  opts = opts || {};
+  const blockedAt = (day,hour)=> opts.availabilityFor
+    ? !instructorAvailable(opts.availabilityFor,day,hour,60)
+    : !anyInstructorAvailable(day,hour);
+  let cells = "";
+  DATA.hours.forEach((h,rowIdx)=>{
+    cells += `<div class="cal-time" style="grid-row:${rowIdx+2};grid-column:1;">${String(h).padStart(2,"0")}:00</div>`;
+    DATA.days.forEach((d,colIdx)=>{
+      const blocked = blockedAt(colIdx,h);
+      const clickable = opts.clickable && !blocked;
+      cells += `<div class="cal-cell${blocked?" blocked":""}${clickable?" clickable":""}" style="grid-row:${rowIdx+2};grid-column:${colIdx+2};" ${clickable?`onclick="prefillBooking(${colIdx},${h})" title="Freien Slot für Buchung übernehmen"`:""}${blocked?` title="Außerhalb der Verfügbarkeit"`:""}></div>`;
+    });
+  });
+  lessons.forEach(l=>{
+    const rowStart = DATA.hours.indexOf(l.hour)+2;
+    const span = l.duration/60;
+    const col = l.day+2;
+    const color = instructorColor(l.instructor);
+    const label = opts.labelBy==="instructor" ? instructorName(l.instructor) : studentName(l.student);
+    const sub = opts.labelBy==="instructor" ? studentName(l.student) : instructorName(l.instructor);
+    // Zeitgleiche Termine (z. B. beide Fahrlehrer in der Admin-Sicht) nebeneinander statt übereinander
+    const group = lessons.filter(o=>o.day===l.day && l.hour < o.hour+o.duration/60 && o.hour < l.hour+l.duration/60)
+      .sort((a,b)=>(a.instructor+a.id).localeCompare(b.instructor+b.id));
+    let side = "";
+    if(group.length>1){
+      const pos = group.findIndex(o=>o.id===l.id), n = group.length;
+      side = `left:calc(${(pos/n*100).toFixed(1)}% + 2px);right:calc(${((1-(pos+1)/n)*100).toFixed(1)}% + 2px);`;
+    }
+    cells += `<div class="cal-lesson${opts.lessonClick?" editable":""}" ${opts.lessonClick?`onclick="openAdminLesson('${l.id}')" title="Anklicken: verschieben, bestätigen oder stornieren"`:""} style="grid-row:${rowStart} / span ${span};grid-column:${col} / span 1;background:${color};opacity:${l.status==="abgeschlossen"?0.55:1};${side}">
+      ${label}<span class="st">${sub}${l.status==="abgeschlossen"?" · erledigt":""}</span>
+    </div>`;
+  });
+  const head = DATA.days.map((d,i)=>`<div class="cal-head" style="grid-column:${i+2} / span 1;">${d}${i===DATA.todayIndex?'<span class="today-dot"></span>':""}</div>`).join("");
+  return `<div class="overflow-x"><div class="cal-wrap">
+    <div class="cal-head" style="grid-column:1;"></div>${head}
+    ${cells}
+  </div></div>`;
+}
+
+/* ---- Planer ---- */
+function prefillBooking(day,hour){
+  state.showBookingForm=true; state.bookForm.day=day; state.bookForm.hour=hour;
+  const free = DATA.instructors.find(i=>instructorAvailable(i.id,day,hour,60) && !conflictingLesson(day,hour,60,i.id));
+  if(free) state.bookForm.instructor = free.id;
+  state.bookingError=""; state.bookingSuccess="";
+  render();
+  document.getElementById("booking-form")?.scrollIntoView({behavior:"smooth", block:"center"});
+}
+function renderPlaner(){
+  if(state.role==="student") return renderPlanerStudent();
+  if(state.role==="instructor") return renderPlanerInstructor();
+  return renderPlanerAdmin();
+}
+function renderPlanerStudent(){
+  const sid = state.activeStudentId;
+  const mine = DATA.lessons.filter(l=>l.student===sid);
+  const upcoming = mine.filter(l=>l.status!=="abgeschlossen").sort((a,b)=>a.day-b.day || a.hour-b.hour);
+  const visible = DATA.lessons.filter(l=>l.student===sid);
+
+  const f = state.bookForm;
+  const bookingForm = state.showBookingForm ? `
+    <div class="card" id="booking-form">
+      <div class="section-title"><h2>Fahrstunde buchen</h2><button class="close-x" onclick="state.showBookingForm=false;render();">✕</button></div>
+      <div class="grid grid-2">
+        <div>
+          <div class="field"><label>Wochentag</label>
+            <select onchange="state.bookForm.day=Number(this.value)">
+              ${DATA.days.map((d,i)=>`<option value="${i}" ${i==f.day?"selected":""}>${d}${i===DATA.todayIndex?" (heute)":""}</option>`).join("")}
+            </select>
+          </div>
+          <div class="field"><label>Uhrzeit</label>
+            <select onchange="state.bookForm.hour=Number(this.value)">
+              ${DATA.hours.map(h=>`<option value="${h}" ${h==f.hour?"selected":""}>${String(h).padStart(2,"0")}:00</option>`).join("")}
+            </select>
+          </div>
+        </div>
+        <div>
+          <div class="field"><label>Dauer</label>
+            <select onchange="state.bookForm.duration=Number(this.value)">
+              <option value="60" ${f.duration==60?"selected":""}>60 Minuten</option>
+              <option value="120" ${f.duration==120?"selected":""}>120 Minuten (Doppelstunde)</option>
+            </select>
+          </div>
+          <div class="field"><label>Fahrlehrer</label>
+            <select onchange="state.bookForm.instructor=this.value">
+              ${DATA.instructors.map(i=>`<option value="${i.id}" ${i.id===f.instructor?"selected":""}>${i.name}</option>`).join("")}
+            </select>
+          </div>
+          <div class="tiny muted">${DATA.instructors.map(i=>`${i.name}: ${instAvailLabel(i)}`).join(" · ")}</div>
+        </div>
+      </div>
+      ${state.bookingError?`<div class="alert alert-error">⚠️ ${state.bookingError}</div>`:""}
+      <div class="small muted" style="margin:10px 0;">Tipps zum Ausprobieren: ${DATA.days[DATA.todayIndex]} 10:00 Uhr bei Murat Aydin ist bereits vergeben (Konfliktprüfung). Sa 15:00 Uhr bei Julia Neumann liegt außerhalb ihrer Arbeitszeiten (Verfügbarkeitsprüfung).</div>
+      <button class="btn btn-primary" onclick="attemptBooking()">Buchung prüfen &amp; bestätigen</button>
+    </div>` : "";
+
+  return `
+    <div class="grid grid-2" style="align-items:start;">
+      <div class="card">
+        <div class="section-title"><h2>Deine nächsten Fahrstunden</h2></div>
+        ${state.bookingSuccess?`<div class="alert alert-success" style="margin-bottom:12px;">✅ ${state.bookingSuccess}</div>`:""}
+        ${upcoming.length===0?`<p class="muted small">Du hast aktuell keine bevorstehende Fahrstunde gebucht.</p>`:
+          upcoming.map(l=>`<div class="list-item">
+            <div><strong>${DATA.days[l.day]}, ${String(l.hour).padStart(2,"0")}:00–${String(l.hour+l.duration/60).padStart(2,"0")}:00</strong>
+            <div class="small muted">${instructorName(l.instructor)} · ${vehicleLabel(l.vehicle)}</div></div>
+            <div style="display:flex;align-items:center;gap:8px;">${statusBadge(l.status)}<button class="btn btn-sm btn-danger" onclick="cancelLesson('${l.id}')">Stornieren</button></div>
+          </div>`).join("")}
+        <div style="margin-top:14px;">
+          <button class="btn btn-primary" onclick="state.showBookingForm=!state.showBookingForm;render();">${state.showBookingForm?"Formular schließen":"+ Fahrstunde buchen"}</button>
+        </div>
+        <div class="tiny muted" style="margin-top:10px;">Geplant: iCal-Kalender-Abo &amp; Push-Erinnerungen (PWA) — reduziert No-Shows.</div>
+      </div>
+      ${bookingForm}
+    </div>
+    <div class="card">
+      <div class="section-title"><h2>Deine Termine im Wochenüberblick</h2><span class="hint">Standort ${DATA.tenant.standort} · freie Zelle anklicken, um die Buchung vorzubereiten</span></div>
+      ${renderCalendar(visible, {labelBy:"instructor", clickable:true})}
+      <div class="cal-legend">${DATA.instructors.map(i=>`<span><span class="dot" style="background:${i.color}"></span>${i.name}</span>`).join("")}<span>schraffiert = kein Fahrlehrer im Dienst</span></div>
+    </div>
+  `;
+}
+function renderPlanerInstructor(){
+  const iid = state.activeInstructorId;
+  const mine = DATA.lessons.filter(l=>l.instructor===iid);
+  const myStudents = DATA.students.filter(s=>s.instructor===iid);
+  const today = mine.filter(l=>l.day===DATA.todayIndex).sort((a,b)=>a.hour-b.hour);
+
+  return `
+    <div class="grid grid-2" style="align-items:start;">
+      <div class="card">
+        <div class="section-title"><h2>Tagesplan · ${DATA.days[DATA.todayIndex]} (heute)</h2></div>
+        ${today.length===0?`<p class="muted small">Keine Fahrstunden heute.</p>`:
+          today.map(l=>`<div class="list-item">
+            <div><strong>${String(l.hour).padStart(2,"0")}:00–${String(l.hour+l.duration/60).padStart(2,"0")}:00</strong>
+            <div class="small muted">${studentName(l.student)} · ${vehicleLabel(l.vehicle)}</div></div>
+            <div style="display:flex;align-items:center;gap:8px;">${l.status==="gebucht"?`<button class="btn btn-sm" onclick="confirmLesson('${l.id}')">Bestätigen</button>`:""}${statusBadge(l.status)}</div>
+          </div>`).join("")}
+      </div>
+      <div class="card">
+        <div class="section-title"><h2>Meine Schüler · Prüfungsreife</h2></div>
+        ${myStudents.length ? myStudents.map(s=>{
+          const sc = overallScore(s.id); const lvl = scoreLevel(sc);
+          return `<div class="list-item">
+            <div style="display:flex;align-items:center;gap:10px;"><div class="avatar">${initials(s.name)}</div><strong>${s.name}</strong></div>
+            <span class="badge badge-${lvl.cls}">${sc} · ${lvl.label}</span>
+          </div>`;
+        }).join("") : `<p class="muted small">Keine Schüler zugewiesen.</p>`}
+      </div>
+    </div>
+    <div class="card">
+      <div class="section-title"><h2>Wochenplan</h2><span class="hint">Alle Fahrstunden von ${instructorName(iid)}</span></div>
+      ${renderCalendar(mine, {labelBy:"student", availabilityFor:iid})}
+      <div class="cal-legend"><span>schraffiert = außerhalb der Arbeitszeiten (${instAvailLabel(byId(DATA.instructors,iid))})</span></div>
+    </div>
+  `;
+}
+function renderPlanerAdmin(){
+  const f = state.adminLesson;
+  const editing = !!(f && f.id);
+  const formCard = f ? `
+    <div class="card" id="admin-lesson-form" style="margin-top:16px;">
+      <div class="section-title"><h2>${editing?"Fahrstunde bearbeiten":"Fahrstunde anlegen"}</h2><button class="close-x" onclick="state.adminLesson=null;state.adminError='';render();">✕</button></div>
+      <div class="grid grid-2">
+        <div>
+          <div class="field"><label>Schüler</label>
+            <select onchange="state.adminLesson.student=this.value">
+              ${DATA.students.map(s=>`<option value="${s.id}" ${s.id===f.student?"selected":""}>${s.name}</option>`).join("")}
+            </select>
+          </div>
+          <div class="field"><label>Fahrlehrer</label>
+            <select onchange="state.adminLesson.instructor=this.value">
+              ${DATA.instructors.map(i=>`<option value="${i.id}" ${i.id===f.instructor?"selected":""}>${i.name} (${instAvailLabel(i)})</option>`).join("")}
+            </select>
+          </div>
+          <div class="field"><label>Dauer</label>
+            <select onchange="state.adminLesson.duration=Number(this.value)">
+              <option value="60" ${f.duration==60?"selected":""}>60 Minuten</option>
+              <option value="120" ${f.duration==120?"selected":""}>120 Minuten (Doppelstunde)</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <div class="field"><label>Wochentag</label>
+            <select onchange="state.adminLesson.day=Number(this.value)">
+              ${DATA.days.map((d,i)=>`<option value="${i}" ${i==f.day?"selected":""}>${d}${i===DATA.todayIndex?" (heute)":""}</option>`).join("")}
+            </select>
+          </div>
+          <div class="field"><label>Uhrzeit</label>
+            <select onchange="state.adminLesson.hour=Number(this.value)">
+              ${DATA.hours.map(h=>`<option value="${h}" ${h==f.hour?"selected":""}>${String(h).padStart(2,"0")}:00</option>`).join("")}
+            </select>
+          </div>
+        </div>
+      </div>
+      ${state.adminError?`<div class="alert alert-error" style="margin-bottom:10px;">⚠️ ${state.adminError}</div>`:""}
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        <button class="btn btn-primary" onclick="saveAdminLesson()">${editing?"Änderungen speichern":"Fahrstunde anlegen"}</button>
+        ${editing && f.status==="gebucht" ? `<button class="btn" onclick="adminConfirmLesson('${f.id}')">Bestätigen</button>`:""}
+        ${editing ? `<button class="btn btn-danger" onclick="adminCancelLesson('${f.id}')">Stornieren</button>`:""}
+      </div>
+      <div class="tiny muted" style="margin-top:8px;">${editing?`Status: ${f.status} · `:""}Verfügbarkeits-, Konflikt- und Fahrzeugprüfung laufen beim Speichern automatisch; das Fahrzeug wird bei Bedarf neu zugewiesen.</div>
+    </div>` : "";
+
+  return `
+    <div class="card">
+      <div class="section-title"><h2>Gesamtplan Standort ${DATA.tenant.standort}</h2><span class="hint">Termin anklicken zum Verschieben, Bestätigen oder Stornieren</span></div>
+      ${state.adminMsg?`<div class="alert alert-success" style="margin-bottom:12px;">✅ ${state.adminMsg}</div>`:""}
+      ${renderCalendar(DATA.lessons, {labelBy:"instructor", lessonClick:true})}
+      <div class="cal-legend">${DATA.instructors.map(i=>`<span><span class="dot" style="background:${i.color}"></span>${i.name} (${instAvailLabel(i)})</span>`).join("")}<span>schraffiert = kein Fahrlehrer im Dienst</span></div>
+      <div style="margin-top:14px;"><button class="btn btn-primary" onclick="newAdminLesson()">+ Fahrstunde anlegen</button></div>
+    </div>
+    ${formCard}
+    <div class="alert alert-info" style="margin-top:16px;">Als Standort-Admin verwaltest du alle Fahrstunden dieses Standorts — Schüler, Fahrlehrer und Fahrzeuge pflegst du im Tab <strong>Stammdaten</strong>.</div>
+  `;
+}
+
+/* ---- Theorie ---- */
+function renderScoreCard(studentId, title){
+  const sc = overallScore(studentId); const lvl = scoreLevel(sc); const col = scoreColor(sc);
+  const circumference = 2*Math.PI*40;
+  const dash = circumference*sc/100;
+  return `
+    <div class="card" style="display:flex;gap:20px;align-items:center;flex-wrap:wrap;">
+      <svg class="score-ring" viewBox="0 0 96 96">
+        <circle cx="48" cy="48" r="40" fill="none" stroke="var(--bg)" stroke-width="10"/>
+        <circle cx="48" cy="48" r="40" fill="none" stroke="${col}" stroke-width="10" stroke-linecap="round"
+          stroke-dasharray="${dash} ${circumference}" transform="rotate(-90 48 48)"/>
+        <text x="48" y="53" text-anchor="middle" font-size="22" font-weight="700" fill="var(--text)">${sc}</text>
+      </svg>
+      <div style="flex:1;min-width:180px;">
+        <h3>${title}</h3>
+        <span class="badge badge-${lvl.cls}">${lvl.label}</span>
+        <p class="small muted" style="margin-top:8px;">Formel: 40% Themenabdeckung · 40% Trefferquote im Test · 20% Aktualität der letzten Übung.</p>
+      </div>
+    </div>`;
+}
+function renderTopicBreakdown(studentId){
+  const prog = DATA.progress[studentId];
+  return `<div class="card">
+    <div class="section-title"><h2>Themenfelder im Detail</h2></div>
+    ${DATA.topics.map(t=>{
+      const ts = topicScore(prog[t.id]);
+      return `<div class="topic-row">
+        <div class="topic-name">${t.name}</div>
+        <div class="topic-bar-track"><div class="topic-bar-fill" style="width:${ts.score}%;background:${scoreColor(ts.score)};"></div></div>
+        <div class="topic-val">${ts.score} / 100</div>
+      </div>`;
+    }).join("")}
+  </div>`;
+}
+function renderChapterContent(topicId){
+  const t = byId(DATA.topics, topicId);
+  const entry = DATA.progress[state.activeStudentId][topicId];
+  const body = t.content
+    ? t.content.map(p=>`<p style="margin-bottom:10px;">${p}</p>`).join("")
+    : `<p style="margin-bottom:10px;">${t.blurb}</p>
+       <p class="small muted" style="margin-bottom:10px;">Dieses Kapitel ist im Draft bewusst nur skizziert — das Kapitel „Vorfahrt“ zeigt beispielhaft den vollen Ausbau mit Lerntext und Merkhilfen.</p>`;
+  return `<div class="card" id="chapter-card">
+    <div class="section-title"><h2>${t.name}</h2><button class="close-x" onclick="state.openChapter=null;render();">✕</button></div>
+    <div class="content-body">
+      ${body}
+      <div class="content-img">Bild-/Video-Platzhalter · Kapitel „${t.name}"</div>
+      <p class="small muted">Aktueller Lernfortschritt: ${entry.learned}% · Trefferquote im Test: ${entry.correctRate}% · Inhalte orientieren sich an den amtlichen Themenfeldern der theoretischen Prüfung.</p>
+    </div>
+    <button class="btn btn-primary" style="margin-top:14px;" onclick="markLearned('${topicId}')">Als gelernt markieren</button>
+  </div>`;
+}
+function renderTheorie(){
+  if(state.role==="admin"){
+    const avgOverall = Math.round(DATA.students.reduce((a,s)=>a+overallScore(s.id),0)/DATA.students.length);
+    const lvl = scoreLevel(avgOverall);
+    return `
+      <div class="card"><div class="section-title"><h2>Prüfungsreife · Standort-Durchschnitt</h2></div>
+      <p class="small muted">Durchschnitt über alle ${DATA.students.length} aktiven Schüler am Standort ${DATA.tenant.standort}.</p>
+      <div style="display:flex;align-items:center;gap:14px;margin-top:10px;"><h1 style="font-size:36px;">${avgOverall}</h1><span class="badge badge-${lvl.cls}">${lvl.label}</span></div>
+      </div>
+      <div class="card"><div class="section-title"><h2>Alle Schüler</h2><span class="hint">Schüler anklicken für die Detailanalyse</span></div>
+      ${DATA.students.map(s=>{const sc=overallScore(s.id);const l=scoreLevel(sc);const active=state.adminTheorieStudent===s.id;return `<div class="list-item" style="cursor:pointer;" onclick="state.adminTheorieStudent=${active?"null":"'"+s.id+"'"};render();"><div style="display:flex;align-items:center;gap:10px;"><div class="avatar">${initials(s.name)}</div>${s.name}${active?' <span class="badge badge-accent">Details unten</span>':""}</div><span class="badge badge-${l.cls}">${sc} · ${l.label}</span></div>`}).join("")}
+      </div>
+      ${state.adminTheorieStudent && byId(DATA.students,state.adminTheorieStudent)
+        ? renderScoreCard(state.adminTheorieStudent, studentName(state.adminTheorieStudent)+" — Prüfungsreife") + renderTopicBreakdown(state.adminTheorieStudent)
+        : ""}`;
+  }
+  let selector = "";
+  if(state.role==="instructor"){
+    const myStudents = DATA.students.filter(s=>s.instructor===state.activeInstructorId);
+    if(!myStudents.length) return `<div class="alert alert-info">Dir sind aktuell keine Schüler zugewiesen. Die Zuordnung pflegt der Standort-Admin unter Stammdaten.</div>`;
+    if(!myStudents.find(s=>s.id===state.activeStudentId)) state.activeStudentId = myStudents[0].id;
+    selector = `<div class="chip-row" style="margin-bottom:16px;">
+      ${myStudents.map(s=>`<button class="chip ${s.id===state.activeStudentId?"active":""}" onclick="state.activeStudentId='${s.id}';render();">${s.name}</button>`).join("")}
+    </div>`;
+  }
+  const targetStudentId = state.activeStudentId;
+  const prog = DATA.progress[targetStudentId];
+  return `
+    ${selector}
+    ${renderScoreCard(targetStudentId, state.role==="instructor" ? studentName(targetStudentId)+" — Prüfungsreife" : "Deine Prüfungsreife")}
+    ${renderTopicBreakdown(targetStudentId)}
+    <div class="card">
+      <div class="section-title"><h2>Kapitel</h2><span class="hint">${state.role==="instructor"?"Lernfortschritt von "+studentName(targetStudentId):"Klicke ein Kapitel zum Lernen"}</span></div>
+      ${DATA.topics.map(t=>{
+        const entry = prog[t.id];
+        return `<div class="list-item" style="cursor:${state.role==="student"?"pointer":"default"};" ${state.role==="student"?`onclick="state.openChapter='${t.id}';render();document.getElementById('chapter-card')?.scrollIntoView({behavior:'smooth',block:'nearest'});"`:""}>
+          <div style="flex:1;">
+            <strong>${t.name}</strong>
+            <div class="tiny muted">${t.blurb}</div>
+            <div class="progress-track"><div class="progress-fill" style="width:${entry.learned}%;"></div></div>
+          </div>
+          <span class="small muted" style="margin-left:12px;">${entry.learned}%</span>
+        </div>`;
+      }).join("")}
+    </div>
+    ${state.role==="student" && state.openChapter ? renderChapterContent(state.openChapter) : ""}
+  `;
+}
+
+/* ---- Simulator ---- */
+function renderSimulator(){
+  if(state.role==="admin"){
+    return `<div class="alert alert-info">Der Testsimulator ist für Schüler und Fahrlehrer gedacht. Als Standort-Admin nutze das Standort-Cockpit für die aggregierte Bestehensquote.</div>`;
+  }
+  let selector = "";
+  if(state.role==="instructor"){
+    const myStudents = DATA.students.filter(s=>s.instructor===state.activeInstructorId);
+    if(!myStudents.length) return `<div class="alert alert-info">Dir sind aktuell keine Schüler zugewiesen. Die Zuordnung pflegt der Standort-Admin unter Stammdaten.</div>`;
+    if(!myStudents.find(s=>s.id===state.activeStudentId)) state.activeStudentId = myStudents[0].id;
+    selector = `<div class="chip-row" style="margin-bottom:16px;">
+      ${myStudents.map(s=>`<button class="chip ${s.id===state.activeStudentId?"active":""}" onclick="state.activeStudentId='${s.id}';state.quiz=null;render();">${s.name}</button>`).join("")}
+    </div>`;
+  }
+  const targetStudentId = state.activeStudentId;
+
+  if(!state.quiz){
+    const weak = weakTopicsFor(targetStudentId,3).map(id=>byId(DATA.topics,id).name);
+    return `
+      ${selector}
+      <div class="card">
+        <div class="section-title"><h2>Testsimulator</h2></div>
+        <p class="small muted">Prüfungsähnliche Simulation mit eigenen Beispielfragen (nicht der lizenzierte amtliche Fragenkatalog). Die Auswertung ist an die amtliche Fehlerpunkte-Logik angelehnt (max. 10 Fehlerpunkte zulässig), Erklärungen gibt es zu jeder falschen Antwort.</p>
+        <p class="small" style="margin-top:8px;"><strong>Adaptive Auswahl für ${studentName(targetStudentId)}:</strong> 12 von ${DATA.questions.length} Fragen, Schwerpunkt ${weak.join(", ")}</p>
+        <button class="btn btn-primary" style="margin-top:14px;" onclick="startQuiz()">Prüfungssimulation starten</button>
+      </div>`;
+  }
+
+  const q = state.quiz;
+  const answeredAll = q.questions.every(item=>q.answers[item.id]!==undefined);
+  let resultBlock = "";
+  if(q.submitted){
+    const wrong = q.questions.filter(item=>q.answers[item.id]!==item.correct);
+    const fehlerpunkte = wrong.reduce((a,item)=>a+item.points,0);
+    const twoFives = wrong.filter(item=>item.points===5).length>=2;
+    const passed = fehlerpunkte<=10 && !twoFives;
+    const wrongTopics = [...new Set(wrong.map(item=>item.topic))];
+    const topicsArg = `[${wrongTopics.map(t=>`'${t}'`).join(",")}]`;
+    resultBlock = `
+      <div class="card" id="quiz-result">
+        <div class="section-title"><h2>Ergebnis</h2></div>
+        <div class="alert ${passed?"alert-success":"alert-error"}">${passed?"✅ Bestanden":"⚠️ Nicht bestanden"} — ${q.questions.length-wrong.length} von ${q.questions.length} richtig, ${fehlerpunkte} Fehlerpunkte (zulässig: max. 10${twoFives?"; außerdem zwei Fragen mit Wertigkeit 5 falsch":""}). Auswertung angelehnt an die amtliche Fehlerpunkte-Logik.</div>
+        <p class="small muted" style="margin-top:10px;">Das Ergebnis fließt automatisch in die Prüfungsreife im Theoriebereich ein.</p>
+        ${wrongTopics.length ? `<button class="btn" style="margin-top:12px;" onclick="startQuiz(${topicsArg})">Nur Schwächen üben (${wrongTopics.map(id=>byId(DATA.topics,id).name).join(", ")})</button>` : ""}
+        <button class="btn btn-ghost" style="margin-top:12px;" onclick="setView('theorie')">Zur Prüfungsreife-Ansicht</button>
+      </div>`;
+  }
+
+  return `
+    ${selector}
+    <div class="card"><div class="section-title"><h2>${q.focusMode?"Schwächen-Training":"Prüfungssimulation"}</h2><span class="hint">${q.questions.length} Fragen · ${studentName(targetStudentId)}</span></div></div>
+    ${q.questions.map((item,idx)=>{
+      const given = q.answers[item.id];
+      return `<div class="card">
+        <div style="display:flex;justify-content:space-between;gap:10px;align-items:baseline;margin-bottom:4px;"><span class="tiny muted">Frage ${idx+1} von ${q.questions.length} · ${byId(DATA.topics,item.topic).name}</span><span class="tiny muted">Wertigkeit: ${item.points}</span></div>
+        <p style="font-weight:600;margin-bottom:10px;">${item.text}</p>
+        <div class="radio-row">
+          ${item.options.map((opt,oi)=>{
+            let cls="";
+            if(q.submitted){
+              if(oi===item.correct) cls="correct";
+              else if(oi===given) cls="wrong";
+            }
+            return `<label class="radio-opt ${cls}">
+              <input type="radio" name="${item.id}" ${given===oi?"checked":""} ${q.submitted?"disabled":""} onclick="selectAnswer('${item.id}',${oi})">
+              <span>${opt}</span>
+            </label>`;
+          }).join("")}
+        </div>
+        ${q.submitted && given!==item.correct ? `<div class="alert alert-info" style="margin-top:10px;">💡 ${item.explanation}</div>` : ""}
+      </div>`;
+    }).join("")}
+    ${!q.submitted ? `<button class="btn btn-primary" ${answeredAll?"":"disabled"} onclick="submitQuiz()">Auswertung anzeigen</button>` : resultBlock}
+  `;
+}
+
+/* ---- Stammdaten ---- */
+function renderStammdaten(){
+  const lessonsOf = iid=>DATA.lessons.filter(l=>l.instructor===iid).length;
+  const bisOptions = [9,10,11,12,13,14,15,16,17,18];
+
+  const instructorRows = DATA.instructors.map(i=>{
+    const students = DATA.students.filter(s=>s.instructor===i.id).length;
+    const outside = DATA.lessons.filter(l=>l.instructor===i.id && l.status!=="abgeschlossen" && !instructorAvailable(i.id,l.day,l.hour,l.duration)).length;
+    const removable = students===0 && lessonsOf(i.id)===0;
+    if(state.editInstructorId===i.id){
+      return `<div class="list-item" style="align-items:flex-start;">
+        <div style="flex:1;min-width:0;">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+            <span style="width:12px;height:12px;border-radius:4px;background:${i.color};flex-shrink:0;"></span>
+            <input class="inline-input" value="${i.name}" onchange="setInstructorName('${i.id}',this.value)" style="font-weight:600;">
+          </div>
+          <div class="grid grid-3">
+            ${DATA.days.map((d,di)=>{
+              const r = i.avail[di];
+              return `<div class="field" style="margin-bottom:4px;"><label>${d}</label>
+                <div style="display:flex;gap:6px;align-items:center;">
+                  <select onchange="setInstructorAvail('${i.id}',${di},'von',this.value)">
+                    <option value="frei" ${r?"":"selected"}>frei</option>
+                    ${DATA.hours.map(h=>`<option value="${h}" ${r&&r[0]===h?"selected":""}>${h}:00</option>`).join("")}
+                  </select>
+                  <select ${r?"":"disabled"} onchange="setInstructorAvail('${i.id}',${di},'bis',this.value)">
+                    ${bisOptions.map(h=>`<option value="${h}" ${r&&r[1]===h?"selected":""}>bis ${h}:00</option>`).join("")}
+                  </select>
+                </div>
+              </div>`;
+            }).join("")}
+          </div>
+          ${outside?`<div class="small" style="color:var(--amber);margin-top:6px;">⚠ ${outside} geplante Fahrstunde(n) liegen außerhalb der Arbeitszeiten — bitte im Planer verschieben.</div>`:""}
+        </div>
+        <button class="btn btn-sm" onclick="state.editInstructorId=null;render();">Fertig</button>
+      </div>`;
+    }
+    return `<div class="list-item">
+      <div style="display:flex;align-items:center;gap:10px;flex:1;min-width:0;">
+        <span style="width:12px;height:12px;border-radius:4px;background:${i.color};flex-shrink:0;"></span>
+        <div><strong>${i.name}</strong>
+          <div class="small muted">${instAvailLabel(i)} · ${students} Schüler · ${lessonsOf(i.id)} Fahrstunden/Woche${outside?` · <span style="color:var(--amber);">⚠ ${outside} Termin(e) außerhalb der Arbeitszeiten</span>`:""}</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:8px;">
+        <button class="btn btn-sm" onclick="state.editInstructorId='${i.id}';render();">Bearbeiten</button>
+        <button class="btn btn-sm btn-danger" ${removable?"":`disabled title="Erst Schüler neu zuordnen und Fahrstunden stornieren"`} onclick="removeInstructor('${i.id}')">Entfernen</button>
+      </div>
+    </div>`;
+  }).join("");
+
+  const vehicleRows = DATA.vehicles.map(v=>{
+    const used = DATA.lessons.filter(l=>l.vehicle===v.id).length;
+    const planned = DATA.lessons.filter(l=>l.vehicle===v.id && l.status!=="abgeschlossen").length;
+    return `<div class="list-item">
+      <div><strong>${v.label}</strong>
+        <div class="small muted">${used} Fahrstunden diese Woche${v.status==="werkstatt"&&planned?` · <span style="color:var(--red);">⚠ ${planned} geplante Stunde(n) trotz Werkstatt — bitte umplanen</span>`:""}</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:flex-end;">
+        <span class="badge ${v.status==="werkstatt"?"badge-red":"badge-green"}">${v.status==="werkstatt"?"in Werkstatt":"einsatzbereit"}</span>
+        <button class="btn btn-sm" onclick="toggleVehicle('${v.id}')">${v.status==="werkstatt"?"Einsatzbereit melden":"In Werkstatt geben"}</button>
+        <button class="btn btn-sm btn-danger" ${used?`disabled title="Wird in Fahrstunden verwendet"`:""} onclick="removeVehicle('${v.id}')">Entfernen</button>
+      </div>
+    </div>`;
+  }).join("");
+
+  const studentRows = DATA.students.map(s=>{
+    const sc = overallScore(s.id), lvl = scoreLevel(sc);
+    const n = DATA.lessons.filter(l=>l.student===s.id).length;
+    return `<div class="list-item">
+      <div style="display:flex;align-items:center;gap:10px;flex:1;min-width:0;flex-wrap:wrap;">
+        <div class="avatar">${initials(s.name)}</div>
+        <input class="inline-input" value="${s.name}" onchange="setStudentName('${s.id}',this.value)">
+        <select class="inline-input" onchange="setStudentInstructor('${s.id}',this.value)" title="Zugeordneter Fahrlehrer">
+          ${DATA.instructors.map(i=>`<option value="${i.id}" ${i.id===s.instructor?"selected":""}>${i.name}</option>`).join("")}
+        </select>
+        <span class="badge badge-${lvl.cls}" title="Prüfungsreife">${sc}</span>
+        <span class="small muted">${n} Fahrstunden</span>
+      </div>
+      <button class="btn btn-sm btn-danger" onclick="removeStudent('${s.id}')">Entfernen</button>
+    </div>`;
+  }).join("");
+
+  return `
+    <div class="card">
+      <div class="section-title"><h2>Fahrlehrer</h2><span class="hint">Namen und Arbeitszeiten — wirken sofort auf Kalender und Buchungsprüfung</span></div>
+      ${instructorRows}
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;">
+        <input class="inline-input" id="ni-name" placeholder="Name des Fahrlehrers">
+        <button class="btn" onclick="addInstructor(document.getElementById('ni-name').value)">+ Fahrlehrer anlegen</button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="section-title"><h2>Fahrzeuge</h2><span class="hint">Werkstatt-Fahrzeuge werden bei neuen Buchungen nicht mehr zugewiesen</span></div>
+      ${vehicleRows}
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;">
+        <input class="inline-input" id="nv-model" placeholder="Modell (z. B. VW Golf)">
+        <input class="inline-input" id="nv-plate" placeholder="Kennzeichen (z. B. KL-FS 104)">
+        <button class="btn" onclick="addVehicle(document.getElementById('nv-model').value, document.getElementById('nv-plate').value)">+ Fahrzeug anlegen</button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="section-title"><h2>Schüler</h2><span class="hint">Name, Fahrlehrer-Zuordnung und Prüfungsreife</span></div>
+      ${studentRows}
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;">
+        <input class="inline-input" id="ns-name" placeholder="Name des Schülers">
+        <select class="inline-input" id="ns-instr">
+          ${DATA.instructors.map(i=>`<option value="${i.id}">${i.name}</option>`).join("")}
+        </select>
+        <button class="btn" onclick="addStudent(document.getElementById('ns-name').value, document.getElementById('ns-instr').value)">+ Schüler anlegen</button>
+      </div>
+    </div>
+    <div class="alert alert-info">Alle Stammdaten gelten für den Mandanten „${DATA.tenant.name} · Standort ${DATA.tenant.standort}“ — im echten System sauber getrennt je Fahrschule (Row Level Security).</div>
+  `;
+}
+
+/* ---- Cockpit ---- */
+function renderCockpit(){
+  const capacity = capacityHours();
+  const bookedHours = DATA.lessons.reduce((a,l)=>a+l.duration/60,0);
+  const auslastung = Math.round(bookedHours/capacity*100);
+  const fahrstunden = DATA.lessons.length;
+  const aktiveSchueler = DATA.students.length;
+  const bestehensquote = 78;
+
+  const nord = { auslastung:61, fahrstunden:34, schueler:38, bestehensquote:71 };
+
+  function bar(labelA,valA,valB,max){
+    const wA = Math.round(valA/max*100), wB = Math.round(valB/max*100);
+    return `<div style="margin-bottom:14px;">
+      <div class="small" style="display:flex;justify-content:space-between;margin-bottom:4px;"><span>${labelA}</span></div>
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;"><div style="width:60px;" class="tiny muted">Mitte</div><div class="topic-bar-track"><div class="topic-bar-fill" style="width:${wA}%;background:var(--accent);"></div></div><div class="tiny" style="width:36px;text-align:right;">${valA}</div></div>
+      <div style="display:flex;align-items:center;gap:8px;"><div style="width:60px;" class="tiny muted">Nord</div><div class="topic-bar-track"><div class="topic-bar-fill" style="width:${wB}%;background:var(--text-mut);"></div></div><div class="tiny" style="width:36px;text-align:right;">${valB}</div></div>
+    </div>`;
+  }
+
+  return `
+    <div class="grid grid-4">
+      <div class="card kpi"><div class="num">${auslastung}%</div><div class="lbl">Auslastung Fahrlehrer</div></div>
+      <div class="card kpi"><div class="num">${fahrstunden}</div><div class="lbl">Fahrstunden diese Woche</div></div>
+      <div class="card kpi"><div class="num">${aktiveSchueler}</div><div class="lbl">Aktive Schüler</div></div>
+      <div class="card kpi"><div class="num">${bestehensquote}%</div><div class="lbl">Bestehensquote (90 Tage, Demo-Wert)</div></div>
+    </div>
+    <div class="grid grid-2" style="align-items:start;">
+      <div class="card">
+        <div class="section-title"><h2>Auslastung je Fahrlehrer</h2><span class="hint">diese Woche, live berechnet</span></div>
+        ${DATA.instructors.map(i=>{
+          const h = DATA.lessons.filter(l=>l.instructor===i.id).reduce((a,l)=>a+l.duration/60,0);
+          const cap = Object.values(i.avail).reduce((a,r)=>a+(r[1]-r[0]),0);
+          const w = cap ? Math.min(Math.round(h/cap*100),100) : 0;
+          return `<div class="topic-row"><div class="topic-name">${i.name}</div><div class="topic-bar-track"><div class="topic-bar-fill" style="width:${w}%;background:${i.color};"></div></div><div class="topic-val">${h} / ${cap} h</div></div>`;
+        }).join("")}
+      </div>
+      <div class="card">
+        <div class="section-title"><h2>Fuhrpark</h2><span class="hint">Verwaltung im Tab Stammdaten</span></div>
+        ${DATA.vehicles.map(v=>`<div class="list-item"><span class="small">${v.label}</span><span class="badge ${v.status==="werkstatt"?"badge-red":"badge-green"}">${v.status==="werkstatt"?"in Werkstatt":"einsatzbereit"}</span></div>`).join("")}
+      </div>
+    </div>
+    <div class="card">
+      <div class="section-title"><h2>Standort-Vergleich</h2><span class="hint">Mitte vs. Nord (Demo)</span></div>
+      ${bar("Auslastung Fahrlehrer (%)", auslastung, nord.auslastung, 100)}
+      ${bar("Bestehensquote (%)", bestehensquote, nord.bestehensquote, 100)}
+      ${bar("Aktive Schüler", aktiveSchueler, nord.schueler, 50)}
+    </div>
+    <div class="card teaser">
+      <span class="badge badge-pink">OPT · Franchise-Zentrale</span>
+      <h3 style="margin-top:10px;">Reform-Meldung 2027</h3>
+      <p class="small" style="margin-top:6px;">Ab Inkrafttreten der Reform müssen Preise und Erfolgsquoten zentral veröffentlicht werden. Dieses Cockpit erhebt die nötigen Kennzahlen bereits automatisch und bereitet sie meldefertig auf — je Standort und für die gesamte Franchise-Zentrale.</p>
+    </div>
+  `;
+}
+
+/* ---------- Start ---------- */
+render();
+</script>
+</body>
+</html>
