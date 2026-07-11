@@ -162,7 +162,7 @@
 
 <script>
 /* ---------- Demodaten ---------- */
-const STORAGE_KEY = "fahrschul_draft_v4";
+const STORAGE_KEY = "fahrschul_draft_v5";
 
 /* Dichter, realistischer Wochenplan: je Fahrlehrer feste Slots [Tag, Stunde, Dauer?],
    Schüler rotieren, Status ergibt sich aus der Lage relativ zu "heute" (Mi, ca. 12 Uhr). */
@@ -195,15 +195,17 @@ function defaultData(){
     hours:[8,9,10,11,12,13,14,15,16,17],
     todayIndex:2,
     students:[
-      {id:"s1",name:"Lena Schmidt",instructor:"i1"},
-      {id:"s2",name:"Jonas Weber",instructor:"i1"},
-      {id:"s3",name:"Sophie Klein",instructor:"i2"},
-      {id:"s4",name:"Tim Hoffmann",instructor:"i2"},
-      {id:"s5",name:"Mia Bauer",instructor:"i1"}
+      {id:"s1",name:"Lena Schmidt",instructor:"i1",email:"lena.schmidt@mail.de",phone:"0176 2011401",strasse:"Gartenstraße 12",plz:"67655",ort:"Kaiserslautern",geburtstag:"2008-04-12",klasse:"BF17",notfallName:"Petra Schmidt (Mutter)",notfallTel:"0171 5533210",dokSehtest:true,dokErsteHilfe:true,dokAntrag:true,dokTheorie:false},
+      {id:"s2",name:"Jonas Weber",instructor:"i1",email:"jonas.weber@mail.de",phone:"0152 3344556",strasse:"Am Hang 3",plz:"67659",ort:"Kaiserslautern",geburtstag:"2007-11-03",klasse:"B",notfallName:"Sabine Weber (Mutter)",notfallTel:"0160 7788990",dokSehtest:true,dokErsteHilfe:false,dokAntrag:false,dokTheorie:false},
+      {id:"s3",name:"Sophie Klein",instructor:"i2",email:"sophie.klein@mail.de",phone:"0157 9911223",strasse:"Lindenweg 8",plz:"67663",ort:"Kaiserslautern",geburtstag:"2006-01-20",klasse:"B",notfallName:"Marc Klein (Vater)",notfallTel:"0170 4455667",dokSehtest:true,dokErsteHilfe:true,dokAntrag:true,dokTheorie:true},
+      {id:"s4",name:"Tim Hoffmann",instructor:"i2",email:"tim.hoffmann@mail.de",phone:"0176 8822114",strasse:"Bergstraße 21",plz:"67657",ort:"Kaiserslautern",geburtstag:"2005-09-14",klasse:"B197",notfallName:"Anja Hoffmann (Mutter)",notfallTel:"0151 6677889",dokSehtest:false,dokErsteHilfe:true,dokAntrag:false,dokTheorie:false},
+      {id:"s5",name:"Mia Bauer",instructor:"i1",email:"mia.bauer@mail.de",phone:"0162 5544332",strasse:"Rosenhof 5",plz:"67661",ort:"Kaiserslautern",geburtstag:"2008-02-27",klasse:"BF17",notfallName:"Karin Bauer (Mutter)",notfallTel:"0173 2211445",dokSehtest:true,dokErsteHilfe:false,dokAntrag:true,dokTheorie:false}
     ],
     instructors:[
-      {id:"i1",name:"Murat Aydin",color:"#007f8f",avail:{0:[8,18],1:[8,18],2:[8,18],3:[8,18],4:[8,18],5:[8,13]}},
-      {id:"i2",name:"Julia Neumann",color:"#c71982",avail:{0:[9,17],1:[9,17],2:[9,17],3:[9,17],4:[9,17]}}
+      {id:"i1",name:"Murat Aydin",color:"#007f8f",avail:{0:[8,18],1:[8,18],2:[8,18],3:[8,18],4:[8,18],5:[8,13]},
+        email:"m.aydin@fahrschule-isi.de",phone:"0170 8899221",hrEintritt:"2018-04-01",hrVertrag:"Vollzeit",hrWochenstunden:"38",hrKlassen:"BE, A",hrScheinBis:"2027-03-31",hrFortbildungBis:"2026-09-30"},
+      {id:"i2",name:"Julia Neumann",color:"#c71982",avail:{0:[9,17],1:[9,17],2:[9,17],3:[9,17],4:[9,17]},
+        email:"j.neumann@fahrschule-isi.de",phone:"0159 3311876",hrEintritt:"2022-08-15",hrVertrag:"Teilzeit",hrWochenstunden:"30",hrKlassen:"BE",hrScheinBis:"2028-06-30",hrFortbildungBis:"2029-08-31"}
     ],
     vehicles:[
       {id:"v1",label:"VW Golf · KL-FS 101",status:"aktiv"},
@@ -260,7 +262,7 @@ function loadData(){
   try{
     const d = JSON.parse(raw);
     // Stale-Guard: ältere Datenstände ohne Verfügbarkeiten/Fehlerpunkte verwerfen
-    if(!d.instructors || !d.instructors[0].avail || !d.vehicles || !d.vehicles[0].status || !d.questions || d.questions[0].points===undefined) return defaultData();
+    if(!d.instructors || !d.instructors[0].avail || !d.vehicles || !d.vehicles[0].status || !d.questions || d.questions[0].points===undefined || !d.students || d.students[0].email===undefined) return defaultData();
     return d;
   }catch(e){ return defaultData(); }
 }
@@ -285,6 +287,7 @@ let state = {
   adminError: "",
   adminMsg: "",
   editInstructorId: null,
+  editStudentId: null,
   adminTheorieStudent: null
 };
 
@@ -357,6 +360,15 @@ function statusBadge(status){
   const cls = status==="abgeschlossen"?"badge-mut":status==="bestätigt"?"badge-accent":"badge-amber";
   return `<span class="badge ${cls}">${status}</span>`;
 }
+function fmtDate(iso){ if(!iso) return "—"; const d=new Date(iso); return isNaN(d)?"—":d.toLocaleDateString("de-DE"); }
+function fristStatus(iso){
+  if(!iso) return {label:"nicht hinterlegt", cls:"badge-mut"};
+  const diff = (new Date(iso) - new Date())/86400000;
+  if(diff<0) return {label:"abgelaufen", cls:"badge-red"};
+  if(diff<180) return {label:"fällig in "+Math.round(diff)+" Tagen", cls:"badge-amber"};
+  return {label:"gültig", cls:"badge-green"};
+}
+function profilField(label,inputHtml){ return `<div class="field"><label>${label}</label>${inputHtml}</div>`; }
 function conflictingLesson(day,hour,duration,instructorId,excludeId){
   return DATA.lessons.find(l=>l.instructor===instructorId && l.id!==excludeId && lessonsOverlap(day,hour,duration,l));
 }
@@ -475,13 +487,16 @@ function adminConfirmLesson(id){
   confirmLesson(id);
 }
 
-/* ---------- Stammdaten ---------- */
+/* ---------- Stammdaten & Profile ---------- */
 function setStudentName(id,name){ const s=byId(DATA.students,id); if(s && name.trim()) s.name=name.trim(); saveData(); render(); }
 function setStudentInstructor(id,iid){ byId(DATA.students,id).instructor=iid; saveData(); render(); }
+function setStudentField(id,field,value){ const s=byId(DATA.students,id); if(s) s[field]=value; saveData(); render(); }
+function toggleStudentField(id,field){ const s=byId(DATA.students,id); if(s) s[field]=!s[field]; saveData(); render(); }
+function setInstructorField(id,field,value){ const i=byId(DATA.instructors,id); if(i) i[field]=value; saveData(); render(); }
 function addStudent(name,iid){
   name=(name||"").trim(); if(!name) return;
   const id="s"+Date.now();
-  DATA.students.push({id,name,instructor:iid});
+  DATA.students.push({id,name,instructor:iid,email:"",phone:"",strasse:"",plz:"",ort:"",geburtstag:"",klasse:"B",notfallName:"",notfallTel:"",dokSehtest:false,dokErsteHilfe:false,dokAntrag:false,dokTheorie:false});
   DATA.progress[id]={};
   DATA.topics.forEach(t=>DATA.progress[id][t.id]={learned:0,correctRate:0,lastAttemptDays:999});
   saveData(); render();
@@ -512,7 +527,8 @@ function addInstructor(name){
   name=(name||"").trim(); if(!name) return;
   const palette=["#007f8f","#c71982","#7c3aed","#d97706","#059669","#be123c"];
   const used=DATA.instructors.map(i=>i.color);
-  DATA.instructors.push({id:"i"+Date.now(), name, color:palette.find(c=>!used.includes(c))||"#64748b", avail:{0:[9,17],1:[9,17],2:[9,17],3:[9,17],4:[9,17]}});
+  DATA.instructors.push({id:"i"+Date.now(), name, color:palette.find(c=>!used.includes(c))||"#64748b", avail:{0:[9,17],1:[9,17],2:[9,17],3:[9,17],4:[9,17]},
+    email:"",phone:"",hrEintritt:"",hrVertrag:"Vollzeit",hrWochenstunden:"38",hrKlassen:"BE",hrScheinBis:"",hrFortbildungBis:""});
   saveData(); render();
 }
 function removeInstructor(id){
@@ -640,7 +656,7 @@ function renderTopbar(){
 function setRole(r){
   state.role=r; state.activeView="planer"; state.showBookingForm=false;
   state.bookingError=""; state.bookingSuccess=""; state.quiz=null; state.openChapter=null;
-  state.adminLesson=null; state.adminError=""; state.adminMsg=""; state.editInstructorId=null; state.adminTheorieStudent=null;
+  state.adminLesson=null; state.adminError=""; state.adminMsg=""; state.editInstructorId=null; state.editStudentId=null; state.adminTheorieStudent=null;
   render();
 }
 function setView(v){ state.activeView=v; state.quiz=null; state.adminLesson=null; state.adminError=""; state.adminMsg=""; render(); }
@@ -652,6 +668,7 @@ function renderApp(){
     {id:"simulator", label:"Testsimulator"}
   ];
   if(state.role==="admin"){ tabs.push({id:"cockpit", label:"Standort-Cockpit"}); tabs.push({id:"stammdaten", label:"Stammdaten"}); }
+  else tabs.push({id:"profil", label:"Profil"});
 
   const app = document.getElementById("app");
   app.innerHTML = `
@@ -667,6 +684,7 @@ function renderApp(){
   else if(state.activeView==="simulator") view.innerHTML = renderSimulator();
   else if(state.activeView==="cockpit") view.innerHTML = renderCockpit();
   else if(state.activeView==="stammdaten") view.innerHTML = renderStammdaten();
+  else if(state.activeView==="profil") view.innerHTML = renderProfil();
 }
 
 /* ---- Kalender-Komponente ---- */
@@ -1063,6 +1081,92 @@ function renderSimulator(){
   `;
 }
 
+/* ---- Profil ---- */
+function renderProfil(){
+  if(state.role==="student") return renderProfilStudent();
+  if(state.role==="instructor") return renderProfilInstructor();
+  return "";
+}
+function renderProfilStudent(){
+  const s = byId(DATA.students, state.activeStudentId);
+  const sc = overallScore(s.id), lvl = scoreLevel(sc);
+  const mine = DATA.lessons.filter(l=>l.student===s.id);
+  const done = mine.filter(l=>l.status==="abgeschlossen").length;
+  const docs = [
+    ["dokSehtest","Sehtest"],
+    ["dokErsteHilfe","Erste-Hilfe-Kurs"],
+    ["dokAntrag","Führerscheinantrag eingereicht"],
+    ["dokTheorie","Theorieprüfung bestanden"]
+  ];
+  const docsDone = docs.filter(d=>s[d[0]]).length;
+  const inp=(f,type,ph)=>`<input type="${type||"text"}" value="${s[f]||""}" placeholder="${ph||""}" onchange="setStudentField('${s.id}','${f}',this.value)">`;
+  return `
+    <div class="grid grid-2" style="align-items:start;">
+      <div class="card">
+        <div class="section-title"><h2>Kontaktdaten</h2><span class="hint">pflegst du selbst</span></div>
+        ${profilField("E-Mail", inp("email","email","name@mail.de"))}
+        ${profilField("Telefon", inp("phone","tel","01xx …"))}
+        ${profilField("Straße & Hausnummer", inp("strasse"))}
+        <div class="grid grid-2" style="gap:12px;">
+          ${profilField("PLZ", inp("plz"))}
+          ${profilField("Ort", inp("ort"))}
+        </div>
+      </div>
+      <div class="card">
+        <div class="section-title"><h2>Persönliches</h2></div>
+        ${profilField("Geburtsdatum", `<input type="date" value="${s.geburtstag||""}" onchange="setStudentField('${s.id}','geburtstag',this.value)">`)}
+        ${profilField("Führerscheinklasse", `<select onchange="setStudentField('${s.id}','klasse',this.value)">${["B","B197","BE","BF17"].map(k=>`<option ${s.klasse===k?"selected":""}>${k}</option>`).join("")}</select>`)}
+        ${profilField("Notfallkontakt (Name)", inp("notfallName","text","z. B. Elternteil"))}
+        ${profilField("Notfallkontakt (Telefon)", inp("notfallTel","tel"))}
+      </div>
+    </div>
+    <div class="grid grid-2" style="align-items:start;">
+      <div class="card">
+        <div class="section-title"><h2>Unterlagen-Checkliste</h2><span class="hint">${docsDone} von ${docs.length} erledigt</span></div>
+        ${docs.map(d=>`<label class="list-item" style="cursor:pointer;">
+          <span>${d[1]}</span>
+          <input type="checkbox" ${s[d[0]]?"checked":""} onchange="toggleStudentField('${s.id}','${d[0]}')">
+        </label>`).join("")}
+        <div class="progress-track"><div class="progress-fill" style="width:${docsDone/docs.length*100}%;"></div></div>
+        <div class="tiny muted" style="margin-top:8px;">Deine Fahrschule sieht den Stand und erinnert dich an fehlende Unterlagen.</div>
+      </div>
+      <div class="card">
+        <div class="section-title"><h2>Deine Ausbildung</h2><span class="hint">wird von der Fahrschule gepflegt</span></div>
+        <div class="list-item"><span class="muted small">Fahrlehrer</span><strong>${instructorName(s.instructor)}</strong></div>
+        <div class="list-item"><span class="muted small">Führerscheinklasse</span><strong>${s.klasse||"—"}</strong></div>
+        <div class="list-item"><span class="muted small">Fahrstunden absolviert / gebucht</span><strong>${done} / ${mine.length-done}</strong></div>
+        <div class="list-item"><span class="muted small">Prüfungsreife</span><span class="badge badge-${lvl.cls}">${sc} · ${lvl.label}</span></div>
+      </div>
+    </div>
+    <div class="alert alert-info">Geplant (DSGVO): Datenauskunft als Export und Konto-Löschung direkt aus dem Profil — im echten System inklusive Einwilligungsverwaltung, da viele Schüler minderjährig sind.</div>
+  `;
+}
+function renderProfilInstructor(){
+  const i = byId(DATA.instructors, state.activeInstructorId);
+  const inp=(f,type)=>`<input type="${type||"text"}" value="${i[f]||""}" onchange="setInstructorField('${i.id}','${f}',this.value)">`;
+  const schein = fristStatus(i.hrScheinBis), fortb = fristStatus(i.hrFortbildungBis);
+  return `
+    <div class="grid grid-2" style="align-items:start;">
+      <div class="card">
+        <div class="section-title"><h2>Kontaktdaten</h2><span class="hint">pflegst du selbst</span></div>
+        ${profilField("E-Mail", inp("email","email"))}
+        ${profilField("Telefon", inp("phone","tel"))}
+        <div class="small muted" style="margin-top:6px;">Arbeitszeiten: ${instAvailLabel(i)} — Änderungen laufen über den Standort-Admin (Stammdaten).</div>
+      </div>
+      <div class="card">
+        <div class="section-title"><h2>Vertrag &amp; Qualifikation</h2><span class="hint">Pflege durch den Standort-Admin</span></div>
+        <div class="list-item"><span class="muted small">Vertragsart</span><strong>${i.hrVertrag||"—"}</strong></div>
+        <div class="list-item"><span class="muted small">Eintrittsdatum</span><strong>${fmtDate(i.hrEintritt)}</strong></div>
+        <div class="list-item"><span class="muted small">Soll-Wochenstunden</span><strong>${i.hrWochenstunden||"—"} h</strong></div>
+        <div class="list-item"><span class="muted small">Fahrlehrerlaubnis-Klassen</span><strong>${i.hrKlassen||"—"}</strong></div>
+        <div class="list-item"><span class="muted small">Fahrlehrerschein gültig bis</span><span style="display:flex;gap:8px;align-items:center;"><strong>${fmtDate(i.hrScheinBis)}</strong><span class="badge ${schein.cls}">${schein.label}</span></span></div>
+        <div class="list-item"><span class="muted small">Nächste Pflicht-Fortbildung</span><span style="display:flex;gap:8px;align-items:center;"><strong>${fmtDate(i.hrFortbildungBis)}</strong><span class="badge ${fortb.cls}">${fortb.label}</span></span></div>
+      </div>
+    </div>
+    <div class="alert alert-info">Fristen für Fahrlehrerschein und Pflicht-Fortbildung werden automatisch überwacht — bei weniger als 6 Monaten Restlaufzeit erscheint eine Warnung, auch beim Standort-Admin.</div>
+  `;
+}
+
 /* ---- Stammdaten ---- */
 function renderStammdaten(){
   const lessonsOf = iid=>DATA.lessons.filter(l=>l.instructor===iid).length;
@@ -1072,13 +1176,16 @@ function renderStammdaten(){
     const students = DATA.students.filter(s=>s.instructor===i.id).length;
     const outside = DATA.lessons.filter(l=>l.instructor===i.id && l.status!=="abgeschlossen" && !instructorAvailable(i.id,l.day,l.hour,l.duration)).length;
     const removable = students===0 && lessonsOf(i.id)===0;
+    const schein = fristStatus(i.hrScheinBis), fortb = fristStatus(i.hrFortbildungBis);
     if(state.editInstructorId===i.id){
+      const iinp=(f,type)=>`<input type="${type||"text"}" value="${i[f]||""}" onchange="setInstructorField('${i.id}','${f}',this.value)">`;
       return `<div class="list-item" style="align-items:flex-start;">
         <div style="flex:1;min-width:0;">
           <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
             <span style="width:12px;height:12px;border-radius:4px;background:${i.color};flex-shrink:0;"></span>
             <input class="inline-input" value="${i.name}" onchange="setInstructorName('${i.id}',this.value)" style="font-weight:600;">
           </div>
+          <div class="small" style="font-weight:700;margin-bottom:6px;">Arbeitszeiten</div>
           <div class="grid grid-3">
             ${DATA.days.map((d,di)=>{
               const r = i.avail[di];
@@ -1096,6 +1203,17 @@ function renderStammdaten(){
             }).join("")}
           </div>
           ${outside?`<div class="small" style="color:var(--amber);margin-top:6px;">⚠ ${outside} geplante Fahrstunde(n) liegen außerhalb der Arbeitszeiten — bitte im Planer verschieben.</div>`:""}
+          <div class="small" style="font-weight:700;margin:12px 0 6px;">Kontakt · Vertrag · Qualifikation (HR)</div>
+          <div class="grid grid-3">
+            ${profilField("E-Mail", iinp("email","email"))}
+            ${profilField("Telefon", iinp("phone","tel"))}
+            ${profilField("Vertragsart", `<select onchange="setInstructorField('${i.id}','hrVertrag',this.value)">${["Vollzeit","Teilzeit","Freiberuflich"].map(v=>`<option ${i.hrVertrag===v?"selected":""}>${v}</option>`).join("")}</select>`)}
+            ${profilField("Eintrittsdatum", iinp("hrEintritt","date"))}
+            ${profilField("Soll-Wochenstunden", iinp("hrWochenstunden","number"))}
+            ${profilField("Fahrlehrerlaubnis-Klassen", iinp("hrKlassen"))}
+            ${profilField("Fahrlehrerschein gültig bis", iinp("hrScheinBis","date"))}
+            ${profilField("Fortbildung fällig bis", iinp("hrFortbildungBis","date"))}
+          </div>
         </div>
         <button class="btn btn-sm" onclick="state.editInstructorId=null;render();">Fertig</button>
       </div>`;
@@ -1103,8 +1221,9 @@ function renderStammdaten(){
     return `<div class="list-item">
       <div style="display:flex;align-items:center;gap:10px;flex:1;min-width:0;">
         <span style="width:12px;height:12px;border-radius:4px;background:${i.color};flex-shrink:0;"></span>
-        <div><strong>${i.name}</strong>
-          <div class="small muted">${instAvailLabel(i)} · ${students} Schüler · ${lessonsOf(i.id)} Fahrstunden/Woche${outside?` · <span style="color:var(--amber);">⚠ ${outside} Termin(e) außerhalb der Arbeitszeiten</span>`:""}</div>
+        <div><strong>${i.name}</strong> <span class="small muted">· ${i.hrVertrag||"—"} · seit ${fmtDate(i.hrEintritt)}</span>
+          <div class="small muted">${instAvailLabel(i)} · ${students} Schüler · ${lessonsOf(i.id)} Fahrstunden/Woche${outside?` · <span style="color:var(--amber);">⚠ ${outside} Termin(e) außerhalb der Arbeitszeiten</span>`:""}
+          ${schein.cls!=="badge-green"?` <span class="badge ${schein.cls}">Fahrlehrerschein: ${schein.label}</span>`:""}${fortb.cls!=="badge-green"?` <span class="badge ${fortb.cls}">Fortbildung: ${fortb.label}</span>`:""}</div>
         </div>
       </div>
       <div style="display:flex;gap:8px;">
@@ -1132,23 +1251,54 @@ function renderStammdaten(){
   const studentRows = DATA.students.map(s=>{
     const sc = overallScore(s.id), lvl = scoreLevel(sc);
     const n = DATA.lessons.filter(l=>l.student===s.id).length;
+    if(state.editStudentId===s.id){
+      const sinp=(f,type)=>`<input type="${type||"text"}" value="${s[f]||""}" onchange="setStudentField('${s.id}','${f}',this.value)">`;
+      const docs=[["dokSehtest","Sehtest"],["dokErsteHilfe","Erste Hilfe"],["dokAntrag","Antrag eingereicht"],["dokTheorie","Theorie bestanden"]];
+      return `<div class="list-item" style="align-items:flex-start;">
+        <div style="flex:1;min-width:0;">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap;">
+            <div class="avatar">${initials(s.name)}</div>
+            <input class="inline-input" value="${s.name}" onchange="setStudentName('${s.id}',this.value)" style="font-weight:600;">
+            <select class="inline-input" onchange="setStudentInstructor('${s.id}',this.value)" title="Zugeordneter Fahrlehrer">
+              ${DATA.instructors.map(i=>`<option value="${i.id}" ${i.id===s.instructor?"selected":""}>${i.name}</option>`).join("")}
+            </select>
+          </div>
+          <div class="grid grid-3">
+            ${profilField("E-Mail", sinp("email","email"))}
+            ${profilField("Telefon", sinp("phone","tel"))}
+            ${profilField("Geburtsdatum", sinp("geburtstag","date"))}
+            ${profilField("Straße & Hausnummer", sinp("strasse"))}
+            ${profilField("PLZ", sinp("plz"))}
+            ${profilField("Ort", sinp("ort"))}
+            ${profilField("Führerscheinklasse", `<select onchange="setStudentField('${s.id}','klasse',this.value)">${["B","B197","BE","BF17"].map(k=>`<option ${s.klasse===k?"selected":""}>${k}</option>`).join("")}</select>`)}
+            ${profilField("Notfallkontakt (Name)", sinp("notfallName"))}
+            ${profilField("Notfallkontakt (Telefon)", sinp("notfallTel"))}
+          </div>
+          <div class="chip-row" style="margin-top:4px;">
+            ${docs.map(d=>`<label class="chip" style="cursor:pointer;${s[d[0]]?"":"opacity:.55;"}"><input type="checkbox" style="margin-right:6px;" ${s[d[0]]?"checked":""} onchange="toggleStudentField('${s.id}','${d[0]}')">${d[1]}</label>`).join("")}
+          </div>
+        </div>
+        <button class="btn btn-sm" onclick="state.editStudentId=null;render();">Fertig</button>
+      </div>`;
+    }
     return `<div class="list-item">
       <div style="display:flex;align-items:center;gap:10px;flex:1;min-width:0;flex-wrap:wrap;">
         <div class="avatar">${initials(s.name)}</div>
-        <input class="inline-input" value="${s.name}" onchange="setStudentName('${s.id}',this.value)">
-        <select class="inline-input" onchange="setStudentInstructor('${s.id}',this.value)" title="Zugeordneter Fahrlehrer">
-          ${DATA.instructors.map(i=>`<option value="${i.id}" ${i.id===s.instructor?"selected":""}>${i.name}</option>`).join("")}
-        </select>
+        <div><strong>${s.name}</strong> <span class="badge badge-mut">${s.klasse||"—"}</span>
+          <div class="small muted">${instructorName(s.instructor)} · ${n} Fahrstunden · ${s.email||"keine E-Mail"} · ${s.phone||"kein Telefon"}</div>
+        </div>
         <span class="badge badge-${lvl.cls}" title="Prüfungsreife">${sc}</span>
-        <span class="small muted">${n} Fahrstunden</span>
       </div>
-      <button class="btn btn-sm btn-danger" onclick="removeStudent('${s.id}')">Entfernen</button>
+      <div style="display:flex;gap:8px;">
+        <button class="btn btn-sm" onclick="state.editStudentId='${s.id}';render();">Profil</button>
+        <button class="btn btn-sm btn-danger" onclick="removeStudent('${s.id}')">Entfernen</button>
+      </div>
     </div>`;
   }).join("");
 
   return `
     <div class="card">
-      <div class="section-title"><h2>Fahrlehrer</h2><span class="hint">Namen und Arbeitszeiten — wirken sofort auf Kalender und Buchungsprüfung</span></div>
+      <div class="section-title"><h2>Fahrlehrer</h2><span class="hint">Arbeitszeiten, Kontakt und Vertrags-/HR-Daten — Arbeitszeiten wirken sofort auf Kalender und Buchungsprüfung</span></div>
       ${instructorRows}
       <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;">
         <input class="inline-input" id="ni-name" placeholder="Name des Fahrlehrers">
@@ -1165,7 +1315,7 @@ function renderStammdaten(){
       </div>
     </div>
     <div class="card">
-      <div class="section-title"><h2>Schüler</h2><span class="hint">Name, Fahrlehrer-Zuordnung und Prüfungsreife</span></div>
+      <div class="section-title"><h2>Schüler</h2><span class="hint">Vollzugriff auf Profil, Kontaktdaten, Unterlagen und Fahrlehrer-Zuordnung</span></div>
       ${studentRows}
       <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;">
         <input class="inline-input" id="ns-name" placeholder="Name des Schülers">
